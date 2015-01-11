@@ -1,0 +1,62 @@
+json = '[
+    {
+    	"type":"conference",
+    	"authors":"Daniel W. Zaide and Carl F. Ollivier Gooch",
+    	"title":"Anisotropic Layering via Curve Insertion into Two Dimensional Meshes",
+    	"date":"October 2014",
+    	"conference":"23rd International Meshing Roundtable. Research Note",
+    	"paper":"zaide_IMR2014.pdf",
+    	"slides":"zaide_IMR2014_slides.pdf",
+    	"notes":""
+    },
+    {
+    	"type":"conference",
+    	"authors":"Daniel W. Zaide and Carl F. Ollivier Gooch",
+    	"title":"Inserting a Curve into an Existing Two Dimensional Mesh",
+    	"date":"October 2013",
+    	"conference":"22nd International Meshing Roundtable. Conference Paper",
+    	"paper":"zaide_IMR2013.pdf",
+    	"slides":"zaide_IMR2013_slides.pdf",
+    	"notes":""
+    },
+    {
+    	"type":"conference",
+    	"authors":"Daniel W. Zaide and Philip L. Roe",
+    	"title":"A Second-Order Finite Volume Method that Reduces Numerical Shockwave Anomalies in One Dimension",
+    	"date":"June 2013",
+    	"conference":"21st AIAA CFD Conference",
+    	"paper":"AIAA-2013-2699.pdf",
+    	"slides":"AIAA-2013-2699.pdf_slides.pdf",
+    	"notes":""
+    },
+    {
+    	"type":"conference",
+    	"authors":"Daniel W. Zaide and Philip L. Roe",
+    	"title":"Flux Functions for Reducing Numerical Shockwave Anomalies",
+    	"date":"June 2012",
+    	"conference":"Seventh International Conference on Computational Fluid Dynamics",
+    	"paper":"zaide_ICCFD7.pdf",
+    	"slides":"zaide_ICCFD7_slides.pdf",
+    	"notes":""
+    },
+    {
+    	"type":"conference",
+    	"authors":"Daniel W. Zaide and Robert B. Lowrie",
+    	"title":"A Second-Order IMEX Method for Radiation Hydrodynamics",
+    	"date":"July 2011",
+    	"conference":"7th International Congress on Industrial and Applied Mathematics",
+    	"paper":"",
+    	"slides":"zaide_imex_slides.pdf",
+    	"notes":""
+    },
+    {
+    	"type":"conference",
+    	"authors":"Daniel W. Zaide and Philip L. Roe",
+    	"title":"Shock Capturing Anomalies and the Jump Conditions in One Dimension",
+    	"date":"June 2011",
+    	"conference":" 20th AIAA CFD Conferences",
+    	"paper":"zaide_AIAA-2011-3686.pdf",
+    	"slides":"zaide_AIAA-2011-3686.pdf_slides.pdf",
+    	"notes":"First Place, 4th AIAA CFD Student Paper Competition"
+    }
+]'

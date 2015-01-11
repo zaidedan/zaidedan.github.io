@@ -1,0 +1,30 @@
+<script src="js/data.js"></script>
+<script>
+  $.each(documents, function(i, paper) {
+    if (paper.topic == "meshing") {
+      var entry = '<li><b>' + paper.papertitle + '</b>.<br>';
+
+      entry = entry + paper.authors + '. <br>';
+      entry = entry + '<b>'+ 'Description:</b> '+ paper.describe + '<br>'
+      if (paper.papertype == "conference") {
+        entry = entry +'<b>Presented at: </b>' + paper.conference + '. <br>';
+      }
+      if (paper.paper != "") {
+        entry = entry + '<a = href="PDF/' + paper.paper + '"> Paper</a>. ';
+      }
+      if (paper.slides != "") {
+        entry = entry + '<a = href="PDF/' + paper.slides + '"> Slides</a>. ';
+      }
+      entry = entry + paper.notes + '</li><br>';
+
+      $('#meshingnotes').append(entry);
+    }
+  });
+</script>
+  <h2 class="blog-post-title">A summary of meshing related notes, conference papers, and presentations.
+</h2><br>
+
+<div class="blog-post" id="meshingnotes">
+
+
+</div>

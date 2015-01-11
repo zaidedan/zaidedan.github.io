@@ -1,0 +1,549 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"za",
+				"zaide_IMR2014_slides"
+			],
+			[
+				"list",
+				"list-style-type"
+			],
+			[
+				"li",
+				"li	Tag"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "zaide.css",
+			"settings":
+			{
+				"buffer_size": 2046,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 54.0,
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: repo",
+				"Package Control: Add Repository"
+			],
+			[
+				"Package Control: s",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: a",
+				"Package Control: Add Repository"
+			],
+			[
+				"Package Control: L",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 467.0
+	},
+	"console":
+	{
+		"height": 146.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by) "
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/zaide/Dropbox/My Site Bootstrap"
+	],
+	"file_history":
+	[
+		"/home/zaide/JSPresentations/reveal.js/index.html",
+		"/home/zaide/IntelLatex/mmpde2d.tex",
+		"/home/zaide/IntelLatex/TeleconAug2014/telecon_slides.tex",
+		"/home/zaide/JSPresentations/Pres/test.html",
+		"/home/zaide/GRUMMP_test_trunk/testtrunk/configure",
+		"/home/zaide/GRUMMP_test_trunk/testtrunk/Makefile",
+		"/home/zaide/GRUMMP_test_trunk/testtrunk/testing/Makefile",
+		"/home/zaide/GRUMMP_test_trunk/testtrunk/testing/Makefile.in",
+		"/home/zaide/GRUMMP_test_trunk/testtrunk/config.status",
+		"/home/zaide/GRUMMP_test_trunk/testtrunk/config.log",
+		"/home/zaide/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/zaide/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
+		"/home/zaide/GRUMMP/examples/3D/surfaceInsertion/tempmesh.vtk",
+		"/home/zaide/IntelLatex/TeleconAug2014/telecon.html",
+		"/home/zaide/GRUMMP/examples/3D/STL/test.txt",
+		"/home/zaide/GRUMMP/examples/3D/STL/ref-output/triangle_prism.grvmesh",
+		"/home/zaide/Dropbox/My Site Bootstrap/zaide.css",
+		"/home/zaide/Dropbox/My Site Bootstrap/index.html",
+		"/home/zaide/JSPresentations/mathjax.config",
+		"/home/zaide/JSPresentations/test.html",
+		"/home/zaide/GRUMMP_test_trunk/newtrunk/Makefile.admin",
+		"/home/zaide/GRUMMP_test_trunk/disttest/GRUMMP-0.7.0/configure-messages.in",
+		"/home/zaide/GRUMMP_test_trunk/disttest/GRUMMP-0.7.0/examples/3D/STL/temp.txt",
+		"/home/zaide/GRUMMP_test_trunk/disttest/GRUMMP-0.7.0/configure",
+		"/home/zaide/GRUMMP_test_trunk/disttest/GRUMMP-0.7.0/Makefile",
+		"/home/zaide/GRUMMP_test_trunk/newtrunk/src/conf/default-rules.in",
+		"/home/zaide/GRUMMP_test_trunk/newtrunk/include/GR_config.h",
+		"/home/zaide/GRUMMP_test_trunk/newtrunk/include/SM_config.h",
+		"/home/zaide/GRUMMP_test_trunk/newtrunk/src/3D/TetMeshBuilder.cxx",
+		"/home/zaide/GRUMMP/src/conf/test.txt",
+		"/home/zaide/GRUMMP/test.txt",
+		"/home/zaide/GRUMMP_ME/src/conf/default-rules",
+		"/home/zaide/GRUMMP/configure",
+		"/home/zaide/GRUMMP/src/conf/default-rules",
+		"/home/zaide/GRUMMP_test_trunk/newtrunk/new_src/services/insert/SurfaceInsertion.cxx",
+		"/home/zaide/.bashrc",
+		"/home/zaide/GRUMMP/src/conf/test1.debug",
+		"/home/zaide/GRUMMP/src/conf/test1",
+		"/home/zaide/GRUMMP/src/base/Makefile",
+		"/home/zaide/GRUMMP/src/base/Makefile.in",
+		"/home/zaide/GRUMMP/src/conf/default-rules.in",
+		"/home/zaide/GRUMMP/src/conf/default-rules.debug",
+		"/home/zaide/GRUMMP/dan/Intel3DQuasi/square_05_forintel.stl",
+		"/home/zaide/GRUMMP/dan/Intel3DQuasi/temp.txt",
+		"/home/zaide/Dropbox/My Site Bootstrap/js/data.js",
+		"/home/zaide/Dropbox/My Site Bootstrap/aboutme.html",
+		"/home/zaide/Dropbox/My Site Bootstrap/js/cfd.js",
+		"/home/zaide/Dropbox/My Site Bootstrap/cfd.html",
+		"/home/zaide/Dropbox/My Site Bootstrap/meshing.html",
+		"/home/zaide/GRUMMP/dan/Intel3DQuasi/square_09_forintel.stl",
+		"/home/zaide/Dropbox/My Site Bootstrap/sitemap.txt",
+		"/home/zaide/Dropbox/My Site Bootstrap/js/shockcapturing.js",
+		"/home/zaide/Dropbox/My Site Bootstrap/meshing/meshinghome.html",
+		"/home/zaide/Dropbox/My Site Bootstrap/js/meshing.js",
+		"/home/zaide/Dropbox/My Site Bootstrap/shockcapturing.html",
+		"/home/zaide/Dropbox/My Site Bootstrap/meshing/meshing1.html",
+		"/home/zaide/Dropbox/My Site Bootstrap/js/data.min.js",
+		"/home/zaide/Dropbox/My Site Bootstrap/js/aboutme.js",
+		"/home/zaide/Dropbox/My Site Bootstrap/json/meshing.json",
+		"/home/zaide/Dropbox/My Site Bootstrap/json/aboutme.json",
+		"/home/zaide/.config/sublime-text-3/Packages/User/JSON.sublime-settings",
+		"/home/zaide/.config/sublime-text-3/Packages/User/JavaScript.sublime-settings",
+		"/home/zaide/ANSLib/trunk/src/mesh/MeshCell3D.cxx",
+		"/home/zaide/Desktop/Fangjie/amphi3d.vtk",
+		"/home/zaide/Dropbox/My Site Bootstrap/meshing/meshing3.html",
+		"/home/zaide/Dropbox/My Site Bootstrap/meshing/meshing2.html",
+		"/home/zaide/Dropbox/My Site Bootstrap/meshing/meshing4.html",
+		"/home/zaide/Dropbox/My Site Bootstrap/meshingart.html",
+		"/home/zaide/Dropbox/My Site Bootstrap/meshing2.html",
+		"/home/zaide/Dropbox/My Site Bootstrap/mystery.html",
+		"/home/zaide/GRUMMP/surfins_geom.vtk",
+		"/home/zaide/GRUMMP/surfins_insert.vtk",
+		"/home/zaide/GRUMMP/surfins_newinsert.vtk",
+		"/home/zaide/GRUMMP/surfins_postrefine.vtk",
+		"/home/zaide/GRUMMP/surfins_prerefine.vtk",
+		"/home/zaide/GRUMMP/surfins_recover.vtk",
+		"/home/zaide/GRUMMP/surfins_removemesh.vtk",
+		"/home/zaide/GRUMMP/surfins_removepts.vtk",
+		"/home/zaide/GRUMMP/surfins_samplepoints_initial.vtk",
+		"/home/zaide/GRUMMP/surfins_samplepoints.vtk",
+		"/home/zaide/GRUMMP/surfins_samplepts_init.vtk",
+		"/home/zaide/GRUMMP_test_trunk/trunk1/trunk/include/GR_Bdry3D.h",
+		"/home/zaide/GRUMMP_test_trunk/trunk1/trunk/CHANGES",
+		"/home/zaide/GRUMMP_test_trunk/trunk1/trunk/new_src/io/ReadNative2D.cxx",
+		"/home/zaide/GRUMMP_test_trunk/trunk1/trunk/src/3D/InitTetra.cxx",
+		"/home/zaide/Dropbox/My Site Bootstrap/cont.html",
+		"/home/zaide/Dropbox/My Site Bootstrap/me.html",
+		"/home/zaide/GRUMMP/examples/2D/nozzle.bdry",
+		"/home/zaide/GRUMMP/examples/2D/geometry.vtk",
+		"/home/zaide/GRUMMP/examples/2D/0012-spline.bdry",
+		"/home/zaide/GRUMMP_test_trunk/trunk1/trunk/src/programs/tri.cxx",
+		"/home/zaide/GRUMMP/examples/2D/blob.bdry",
+		"/home/zaide/GRUMMP/iMesh-Defs.inc.in",
+		"/home/zaide/GRUMMP/configure.in",
+		"/home/zaide/GRUMMP_test_trunk/trunk1/trunk/iMesh-Defs.inc.in",
+		"/home/zaide/GRUMMP_test_trunk/trunk1/trunk/configure.in",
+		"/home/zaide/GRUMMP/examples/2D/ref-output/blob.qual",
+		"/home/zaide/GRUMMP/examples/2D/blob.qual",
+		"/home/zaide/GRUMMP/include/GR_Mesh2D.h",
+		"/usr/anslab/src/cgma-13.1/include/FacetQueryEngine.hpp",
+		"/usr/anslab/src/cgma-13.1/geom/facet/FacetQueryEngine.cpp",
+		"/home/zaide/GRUMMP_test_trunk/trunk1/trunk/src/conf/default-rules.in",
+		"/home/zaide/GRUMMP/config.log",
+		"/home/zaide/GRUMMP/examples/2D/surfaceInsertion/square_uni4.grmesh",
+		"/home/zaide/GRUMMP/include/GR_Mesh2D.h.working",
+		"/home/zaide/GRUMMP/examples/3D/surfaceInsertion/test.txt",
+		"/home/zaide/GRUMMP/examples/3D/surfaceInsertion/hex2.vmesh.qual",
+		"/home/zaide/rsyncanslab.sh",
+		"/home/zaide/rsync.sh",
+		"/home/zaide/GRUMMP_CGM_TEST/src/programs/tetra.cxx",
+		"/home/zaide/GRUMMP_CGM_TEST/CGM/cgma-13.1/geom/Cholla/ChollaEngine.cpp",
+		"/home/zaide/GRUMMP_CGM_TEST/examples/3D/STL/dan.txt",
+		"/home/zaide/GRUMMP_CGM_TEST/CGM/cgma-13.1/geom/Cholla/FacetEvalTool.hpp",
+		"/home/zaide/GRUMMP_CGM_TEST/CGM/cgma-13.1/geom/Cholla/FacetEvalTool.cpp",
+		"/home/zaide/CGM13/cgma-13.1/geom/Cholla/ChollaEngine.cpp",
+		"/home/zaide/GRUMMP_CGM_TEST/CGM/cgma-13.1/geom/Cholla/FacetorTool.cpp",
+		"/home/zaide/CGM13/cgma-13.1/geom/Cholla/CubitFacet.cpp",
+		"/home/zaide/CGM13/cgma-13.1/geom/facet/FacetSurface.hpp",
+		"/home/zaide/CGM13/cgma-13.1/geom/facet/FacetSurface.cpp",
+		"/home/zaide/CGM13/cgma-13.1/geom/Cholla/FacetEvalTool.hpp",
+		"/home/zaide/CGM13/cgma-13.1/geom/Cholla/FacetEvalTool.cpp",
+		"/home/zaide/CGM13/cgma-13.1/geom/Cholla/CurveFacetEvalTool.cpp",
+		"/home/zaide/GRUMMP/examples/3D/surfaceInsertion/cubex.vmesh",
+		"/home/zaide/GRUMMP/examples/3D/surfaceInsertion/1_1_n24box.vmesh.qual",
+		"/home/zaide/CGM13/cgma-13.1/geom/Cholla/TDFacetBoundaryEdge.cpp",
+		"/home/zaide/CGM13/cgma-13.1/geom/facet/FacetModifyEngine.cpp",
+		"/home/zaide/CGM13/cgma-13.1/geom/Cholla/CubitFacet.cpp~",
+		"/home/zaide/GRUMMP/diff.txt"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			" init",
+			"init ",
+			"make",
+			"1.00000000       0.5000000",
+			"draw_white",
+			"reveal.js/",
+			"transition",
+			"m[15]",
+			"m[14]",
+			"m[13]",
+			"m[12]",
+			"m[11]",
+			"m[10]",
+			"m[9]",
+			"m[8]",
+			"m[7]",
+			"m[6]",
+			"m[5]",
+			"m[4]",
+			"m[3]",
+			"m[2]",
+			"m[1]",
+			"m[0]",
+			"m13",
+			"m12",
+			"m11",
+			"m10",
+			"x0",
+			"m00",
+			"y0",
+			"x0",
+			"z0",
+			"reg",
+			"regre",
+			"No such",
+			"regres",
+			"No rule",
+			"No such",
+			"make regress",
+			"init",
+			"regression",
+			"configure.in",
+			"configure",
+			"DEBUG",
+			"debug",
+			".cxx",
+			"DEBUG",
+			"confdefs.h",
+			"DEBUG",
+			"NDEBUG",
+			"LDFLAGS",
+			"$(LIB)",
+			"$(LIBS)",
+			"$(LIB)",
+			"LDFLAGS",
+			"OPT_DE",
+			"CFLAGS",
+			"OPT_DEBUG_FLAGS",
+			"DEBUG",
+			"enableval",
+			"enable-deb",
+			"0.09",
+			"dir",
+			"jami",
+			"Shock",
+			"shockcapturing",
+			"x",
+			"z",
+			"y",
+			"\"title\":",
+			"selected",
+			"\"conference\":.+\\n",
+			"\"conference\":.+",
+			"\"conference\":.",
+			"\"conference\"",
+			"(\\w|^)conference(\\w|$) ",
+			"(\\W|^)conference(\\W|$) ",
+			"(\\W|^)\\\"conference\\\"(\\W|$) ",
+			"(\\W|^)\"conference\"(\\W|$) ",
+			"($\"conference\")",
+			"(^\"conference\")",
+			"(^\"conference\")\\w+",
+			"(\"conference\")\\w+",
+			"([\"conference\"])\\w+",
+			"(conference)\\w+",
+			"([A-Z])\\w+",
+			"([A-Z])\\w",
+			"/([A-Z])",
+			"\"conference\"*+5",
+			"\"conference\"****",
+			"\"conference\"*",
+			"\"conference\"*\\n",
+			"\"type\"",
+			"val",
+			"document.getElementByID",
+			"vert",
+			"xs-hidden",
+			"col-sm",
+			"br/",
+			"twitter-follo",
+			"blog-he",
+			"br /",
+			"blog",
+			"col-lg",
+			"lightgray",
+			"lightblue",
+			"delete pSI",
+			"delete ",
+			"delete",
+			"</u>",
+			"writeNative",
+			"39",
+			"76",
+			"OCC",
+			"import_facets",
+			"0x7f9670a63b58",
+			"build_surface_and",
+			"debug",
+			"build_surface_and_c",
+			"init_bezier_surface",
+			"debug_draw_bezier_edges",
+			"init_bezier_sur",
+			"debug_draw_bez",
+			"bezier_su",
+			"set_",
+			"minDot",
+			"FacetEvalTool(",
+			"initialize("
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"../reveal.js/",
+			"M[3][3]",
+			"M[2][3]",
+			"M[1][3]",
+			"M[0][3]",
+			"M[3][2]",
+			"M[2][2]",
+			"M[1][2]",
+			"M[0][2]",
+			"M[0][0]",
+			"M[3][1]",
+			"M[2][1]",
+			"M[1][1]",
+			"M[0][1]",
+			"M[3][0]",
+			"M[2][0]",
+			"M[1][0]",
+			"M[0][0]",
+			"metA[3]",
+			"metA[2]",
+			"metA[1]",
+			"metA[0]",
+			"-0.12",
+			"direction",
+			"cfd",
+			"y",
+			"x",
+			"\"papertitle\":",
+			"special",
+			"\"conference\":.*\\n\"journal\":\"\"\\n",
+			"\"conference\":.+\\n\"journal\":\"\"\\n",
+			"\"papertype\"",
+			"paper",
+			"$",
+			"hidden-xs",
+			"col-md",
+			"br",
+			"col-md",
+			"darkgray",
+			"lightgray",
+			"</u><br>",
+			"sphere",
+			"4",
+			"8",
+			"0.775",
+			"0.225",
+			"\\spa",
+			"10",
+			"4",
+			"20",
+			"-20",
+			"15",
+			"-20",
+			"description"
+		],
+		"reverse": false,
+		"show_context": false,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "zaide.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2046,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1928,
+								1928
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2011.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 35.0
+	},
+	"input":
+	{
+		"height": 34.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 124.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "site.sublime-project",
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

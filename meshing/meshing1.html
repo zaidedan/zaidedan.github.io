@@ -1,0 +1,73 @@
+
+<div class="blog-post" id="imr23">
+  <h2 class="blog-post-title">A Summary of the 23rd International Meshing Roundtable.</h2>
+<p>All papers and details are available at <a href="http://www.sandia.gov/imr/" target="_blank">the IMR website.</a></p>
+<p><b>Overview (Surface Mesh)</b></p>
+<p>
+As I've only been in the meshing community for several years now, it still feels new to me. There is a definite elegance and beauty in meshing, rather than viewing the world as atoms connected to form molecules that define the world around us, the building blocks of our universe are vertices that are connected to form edges, which form triangles which form tetrahedra, which then form polyhedra which we build up to form every geometry imaginable in the world as the basis for our simulations, models, and to realize our dreams. Some people dream in black and white, me, I dream in triangles. <br><br>
+
+I am extremely grateful to those who took the time to speak to me, and share their insight, ideas, and experience. This is where the meaning and value in this conference is and this community, and why I am grateful for the sponsorship and financial support that helps kids like me attend (I sat at the international meshing kids roundtable), so I can look up at those who paved the way before me, and let me take footsteps on more solid ground.<br><br>
+
+I'm going to avoid going into detail about individual speakers, as I don't want to single anyone out for better or worse, and as the agenda and papers are on the conference website. This conference does an excellent job providing the papers online early enough that attendees can look them over, think of questions, and enter talks with a preliminary understanding of the work. The open nature of the conference material is conducive to more collaboration and to better communication of ideas. <br><br>
+
+Joe Walsh made an insightful comment about meshing at the professional development panel, that the goal of meshing is that the user does not even know there is a mesh. More succinctly, <b>when we do things right, people won't be sure we've done anything at all.</b> That stood out to me as very profound, and a good philosophical way to approach my work. With that in mind, this is the story of my time at the 2014 International Meshing Roundtable.
+</p>
+<p><b>The Conference (Volume Mesh)</b></p>
+<p>
+
+The conference began on the sunday, with four short courses. I learned a lot about fundamental work being done and of open problems and challenges we face. I'm confident I will look over the slides again as a reference in my future endeavors. There was a wide range of ideas presented, and while it would be impossible to tailor it to every individual's needs, I think some guidelines for the speakers could make them even more useful based on feedback from short course attendees. As a meshing algorithms person, the first two talks were the most relevant to me right now. First, Hang Si spoke of Delaunay mesh generation and refinement techniques. The problem is still that Delaunay mesh generation inherently produces slivers. As one colleague pointed out, "If you don't want slivers, don't use Delaunay". It does have a nice mathematical theory though, and certain guarantees in our quest for truly robust mesh generation. <br><br>
+
+Up second was Steven Owen (2013 IMR Fellow) talking about hexahedral mesh generation. He began by commenting on how much more automatic tetrahedral meshing was than hexahedral, and then proceeded to draw pictures on flip chart board, confirming that even explaining hexahedral mesh generation is less automatic than explaining tetrahedral mesh generation. Hexahedral meshing still requires a lot of user intervention and expertise; perhaps it will be easier to force solvers to relax and settle for hex-dominant meshes, which can be generated with much more automation. This conference had a significant number of papers this year on automating the creation of blocks from which hexahedral meshes can be created.. I don't know enough to know if truly automated hexahedral meshing is even possible, though I tend to believe that nothing is truly impossible. The last two short courses were on parallel meshing and CAD fix-up, both extremely relevant topics, but topics I don't have a lot to say about.<br><br>
+
+Each morning and afternoon session began with a keynote presentation, an hour long talk by an expert in the field. The speakers were good, and a lot of different ideas were conveyed. As a brief summary, Deryl Snyder of CD-adapco mentioned that currently users require 60-80 million cell meshes, and that number doubles every two years, giving us a realistic expectation of users' needed. Bruno Levy of INRIA's six-dimensional centroidal voronoi tesselation was mind blowing. Frederic Alauzet updated us on the work as part of the GAMMA3 team at INRIA on anisotropic mesh adaptation for CFD. The team also presented its work in several conference papers on anistropic meshing and mesh movement, I recommend their papers to anyone with interest in this topic. Spencer Sherwin and Jaoquim Peiro did a joint keynote presentation, talking about curved meshing and their collaboration on higher-order meshes for CFD with applications in F1 racing. Finally, Nigel Taylor spoke about geometry challenges in industry, again mentioning the bottleneck of CAD preparation for mesh generation.<br><br>
+
+As I look for broad themes on the work presented, from a CFD perspective there was significant interest in techniques for generating these higher-order meshes (curved elements). Most of them work by starting with a linear mesh and then optimizing control points on the linear elements to achieve curvature. This is particularly difficult for anisotropic curved elements, such as those needed in boundary layers. As one twitter follower asked me to keep an eye on this topic, it stood out to me, as well as demonstrating the effect of social media at a conference even as small as this one.<br><br>
+
+Similar to last year, for students and post-docs like myself, there was a professional development panel at one of the lunches. The professional development panel this year consisted of two of academia, national lab, and industry representatives. This year's host was Scott Canann of CD-adapco, and thank you Scott and everyone else for participating and answering our questions. Personally, the whole conference is a professional development panel, so it's hard to pick out things specifically from the panel of note, other than Joe Walsh's comment alluded to in my introduction. <br><br>
+
+Unlike last year, this year's poster session (see end of post for all pictures) had only eight posters. They are highlighted by the meshing contest, where a pre-determined geometry, this year, the London Bridge, is provided and attendees are encouraged to submit their meshes. I love the meshing contest, its a beautiful thing to see these meshes judged on technical and artistic merit. I wonder if the committee could post the contest meshes, so I could look at them myself and manipulate them. I think the poster session could have increased value if some of the industry representatives that were attending provide posters describing their uses and requirements, allowing researchers to get a sense of their needs and to provide a deeper level of communication between them. <br><br>
+
+
+The last major event of the conference was the banquet dinner. As an aerospace engineering having the banquet at the Royal Air Force Museum was unreal. It was amazing to have the place to ourselves, and walk around amongst the planes. The dinner concluded with a presentation of the awards and a keynote speech. As far as awards go, this year's IMR Fellow was Paul-Louis George. The meshing contest winners were CD-adapco for meshing maestro, and INRIA GAMMA3 team for best technical mesh. The best technical paper was <a href="http://www.sandia.gov/imr/Papers/09_IMR23_Sieger.pdf" target="_blank">Sieger et al.</a> and the best technical poster was by <a href="http://www.sandia.gov/imr/Papers/08_IMR23_RuizGirones.pdf" target="_blank">Ruiz et al.</a>. <br><br>
+
+The banquet speaker this year was Adrian Bowyer, of the <a href="http://en.wikipedia.org/wiki/Bowyer%E2%80%93Watson_algorithm" target="_blank">Bowyer-Watson algorithm</a>. Dr. Bowyer is now well known for RepRap, a self-replicating 3D printer, and he noted this was the first time in awhile he was invited to speak in front of people who knew him best for his previous work, rather than his current project. He is definitely an interesting man and it was an inspirational and powerful presentation. He began his presentation by quickly addressing Bowyer-Watson, which came to him in a dream. Apparently he also dreams in triangles. I've since heard that similar work had been published in France at the same time, and that the algorithm could have a third name. <b>UPDATE:</b> Hermeline, in <a href="https://eudml.org/doc/193398" target="_blank">Triangulation automatique d'un polyedre en dimension N</a>. Published in his Ph.D. Thesis in 1980, and as a paper in 1982. I haven't translated it thoroughly, but he does cite Bowyer and Watson's work. I'd need to look into the context of it, but a first glance, it definitely looks like Bowyer-Watson.<br><br>
+
+Overall the conference was wonderful, some smaller issues were that the rooms were not set up well visually. In general, it was only possible to see the top two thirds of a presentation. Also, with two sessions, at times they ran off schedule, making it more challenging to bounce between rooms at times. The hotel itself was in a great location in London, and was an enjoyable stay, with large rooms and comfortable space. While the weather didn't exactly cooperate, London is still beautiful, rain or shine. I'm already looking forward to next years conference is in Austin, Texas in October 2015. 
+</p>
+<p><b>Other thoughts that may only interest me (Hanging Nodes).</b></p>
+<p>
+I was inspired to make a tumblr of meshes in nature and art, inspired by Pointwise's blog and my own photos, at <a href="http://unstructuredmesh.tumblr.com/" target="_blank">http://unstructuredmesh.tumblr.com/</a> Please submit.  <br><br>
+
+Having Per-Olof Persson in charge of papers made every paper ... per-reviewed. His name is also pronounced "Pear", like the fruit, not "Per" as in miles per hour as I heard pronounced many times.<br><br>
+
+There is a definite Computational Fluid Dynamics (CFD) feel, in my opinion, possibly because I am a CFDer and know the CFD people better.<br><br>
+
+There were around ~10 women out of ~130. I wonder if we are doing enough for women in our field.<br><br>
+
+Adrian Bowyer has never met David Watson, despite an algorithm bearing both names.<br><br>
+
+I'm in awe of the work being done at INRIA.<br><br>
+
+There were at least four Canadian born attendees including myself, and a few others who are luckily married to Canadians. The conference also always falls on Canadian Thanksgiving.<br><br>
+
+My new goal is to one day win a meshing maestro award for artistic merit.<br><br>
+
+The coffee flowed continuously. I consumed eighteen ~8 oz coffees and eight espressos in three and a half days.<br><br>
+
+It was fitting that on the last day, the main room only had round tables.
+</p>
+<p><b>Disclaimer (Bounding Box)</b></p>
+<p>
+This blog is based on a series of tweets I posted on twitter <a href="https://twitter.com/zaidedan" target="_blank">(@zaidedan)</a> with #IMR2014. Thank you to the those people on twitter who cared about what I had to say, and interacted with me in real time. <br><br>
+
+I formally apologize to anyone whose ideas I may have misunderstood. Much like the challenge of translating CAD from one format to another, information gets lost in translation. These views are my own, and my descriptions are obviously biased towards my interests and background knowledge. Despite my opinions, suggestions, and complaints, the committee did a wonderful job, and I am grateful for them, specifically Matt Staten and Kathy Loeppky, who organized and set up this event.<br><br></p>
+<p><b> Posters from IMR </b></p>
+<p><img class="center" src="images/IMRImages/poster0.jpg" border="0" width="550" alt="Poster"></p>
+<p><img class="center" src="images/IMRImages/poster1.jpg" border="0" width="550" alt="Poster"></p>
+<p><img class="center" src="images/IMRImages/poster2.jpg" border="0" width="550" alt="Poster"></p>
+<p><img class="center" src="images/IMRImages/poster3.jpg" border="0" width="550" alt="Poster"></p>
+<p><img class="center" src="images/IMRImages/poster4.jpg" border="0" width="550" alt="Poster"></p>
+<p><img class="center" src="images/IMRImages/poster5.jpg" border="0" width="550" alt="Poster"></p>
+<p><img class="center" src="images/IMRImages/poster6.jpg" border="0" width="550" alt="Poster"></p>
+<p><img class="center" src="images/IMRImages/poster7.jpg" border="0" width="550" alt="Poster"></p>
+</div><!-- /.blog-post -->

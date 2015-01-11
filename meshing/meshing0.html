@@ -1,0 +1,15 @@
+<div class="blog-post" id="meshingart">
+  <h2 class="blog-post-title">Meshing to replicate Art.</h2>
+<p>I was once inspired by a simple facebook post by <a href="http://about.me/jchawner">John Chawner</a> of <a href="www.pointwise.com">Pointwise</a>, who said: </p>
+<p><img class="center" src="images/facebook1.png" border="0" alt="Art Game"></p>
+and suggested I look into Roy Lichtenstein. I found a simple picture, and rather than playing the game, experimented with image extraction to get the boundary data, and then generated a simple unstructured mesh off of its main triangulated features, all of this done with the surface insertion/mesh adaptation algorithm I've been playing with in my research.
+<p><img class="center" src="images/red-barn-improved.jpg" border="0" width="500" alt="Red Barn"></p>
+I liked the art approach, and after asking around to find famous art with easily recognizable regions, and avoiding the obviousness of Mondrian, I settled on 1914 by Paul Klee. I extracted the coordinates of the image using Matlab's image processing toolbox, and generated a simple base mesh to adapt off of, before letting my mesher create art. The original painting is shown on the left, and my initial mesh and final mesh are to the right. <br>
+
+<p><table cellpadding="0" width="550" cellspacing="0"><tr><td><img class="center" src="images/paul-klee-1914.jpg" width="150" border="0" alt="Original"></td><td><img class="center" src="images/klee_init.png" border="0" width="150" alt="Initial Mesh"></td><td><img class="center" src="images/klee_final.png" width="150" border="0" alt="Final Mesh"></td></tr></table></p>
+<p>The real motivation and interest in this was inspired by timelapse videos of artists. Using mesh adaptation, I can create my own "timelapse" shown in the video below (3 MB) or in gif form (warning: slow) <a href="images/klee.gif" width="300" alt="Klee Painting">klee.gif</a>.</p>
+<p>
+<iframe width="550" height="412.5" src="http://www.youtube.com/embed/dMSwpnm-0Ow" frameborder="0" allowfullscreen></iframe>
+</p>
+The algorithm is described in my 2013 International Meshing Roundtable Conference Paper, <b>Inserting a Curve into an Existing Two Dimensional Mesh. <a href="PDF/zaide_IMR2013.pdf">Paper</a>. <a href="PDF/zaide_IMR2013_slides.pdf"> Slides</a>.
+</div><!-- /.blog-post -->
