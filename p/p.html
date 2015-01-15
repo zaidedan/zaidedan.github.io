@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>A Daniel W. Zaide Presentation</title>
+
+    <meta name="description" content="A Daniel W. Zaide Presentation">
+    <meta name="author" content="Daniel W. Zaide">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="../reveal.js/css/reveal.min.css">
+    <link rel="stylesheet" href="../reveal.js/css/theme/night.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+    <link rel="stylesheet" href="support/slides.css">
+
+
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+    if (window.location.search.match(/print-pdf/gi)) {
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = '../reveal.js/css/print/pdf.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    }
+    </script>
+
+    <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+</head>
+
+<body>
+
+    <div class="reveal">
+        <!-- Any section element inside of this container is displayed as a slide -->
+        <div class="slides">
+            <section>
+                <h2>Who is Daniel Zaide?</h2>
+                <h4>Daniel W. Zaide<br>
+                <small><br>Rensselaer Polytechnic Institute </small>
+                <br><br>
+                </h4>
+                <h4> January 15th, 2015 </h4>
+                <h4>
+                    <!-- <small>  -->
+                    <a href="http://www.danielzaide.com/p/p.pdf">Link to PDF Version</a> 
+                    <!-- </small> -->
+                </h4>
+            </section>
+            <section>
+                <h3>A little bit about me...</h3>
+                <img src="images/map.png">
+
+            </section>
+<!--             <section>
+                <h3> Research Interests </h3>
+                My research interests are in numerical simulation, from an algorithmic perspective with a more recent focus on applied problems, including:
+                <p>
+              <ul>
+                        <li> Numerical methods for systems of hyperbolic conservation laws </li>
+                        <li> Computational geometry and algorithms for unstructured mesh generation and adaptation </li>
+                        <ul>
+                        <li> Delaunay mesh generation and refinement, anisotropic meshing, mixed element meshing</li>
+                        </ul>
+                    </ul>
+                    </p>
+            </section> -->
+            <section>
+                <h3> Research - Shockwaves </h3>
+                <p>In the simulation of shockwaves with a standard shock-capturing approach, anomalous behavior can often be seen such as
+                    <ul>
+                        <li> Oscillations behind slowly-moving shocks, </li>
+                        <li> Start-up errors,</li>
+                        <li> Wall heating,</li>
+                        <li> Unstable equilibria,</li>
+                        <li> Slow convergence to steady state,</li>
+                        <li> First-order errors in ``high-order'' schemes,</li>
+                        <li> "Carbuncles"</li>
+                    </ul>
+
+                    <p>
+            </section>
+                     <section>
+                <h3> Research - Shockwaves </h3>
+                <img src="images/carbuncle-example2.png" style="height:350px; padding: 20px">
+                <img src="images/carbuncle-example.png" style="height:350px; padding: 20px">
+
+                <p> On the left, a planar shockwave is simulated and develops an instability, on the right, a bow shock is simulated and develops a heat spike. (Kitamura and Nishikawa) </p>
+
+            </section>
+
+
+            <section>
+                <h3> Research - Shockwaves </h3>
+                <p>
+                    If our simulations develop these problems, and our solvers treat these numerical errors as physical waves, we lose faith in the validity of our underlying simulation.
+                    <br>
+                    <br> This is particularly problematic in simulations where we are not certain of the expected physical behavior.
+                </p>
+
+            </section>
+                        <section>
+                <h3> Research - Shockwaves </h3>
+                <p>Consider the simplest case for the 1D Euler Equations, a single stationary shock computed with a first-order method in space and time, initialized with the exact solution:</p>
+                <img src="images/carbuncle.gif">
+                <p>
+                   </p>
+
+
+
+            </section>
+            <section>
+                <h3> Research - Shockwaves </h3>
+                <p>Consider the second simplest case for the 1D Euler Equations, a single slowly moving shock computed with a first-order method in space and time: </p>
+                <img src="images/slowshock_comp_normal.gif">
+                <p>
+                    There is a large wave shed as the shock moves through the uniform mesh. </p>
+
+
+
+            </section>
+
+            <section>
+                <h3> Research - Shockwaves </h3>
+                <p>In my research, I introduced a new method (red) which reduced the error significantly compared with traditional methods (black) while maintaining the sharpness of the shockwave. </p>
+                <img src="images/slowshock_comp.gif">
+            </section>
+            <section>
+                <h3> Research - Shockwaves </h3>
+                <p>
+                    Unlike other methods which alleviate the symptoms of the problem, my research focused on understanding the root cause of these errors, which was determined to be the nonlinearity of the shockwave jump conditions.
+                    <br>
+                    <br> While an improved method was developed in one dimension, its extension to two dimensions was problematic and is a current area of research.
+                </p>
+
+            </section>
+
+                        <section>
+                <h3> Research - Meshing </h3>
+                <p>
+<b>Problem:</b> take a pre-existing mesh and insert a series of prescribed internal
+boundaries into its topology. <br><br>
+<b>Goal:</b> obtain internal boundaries in a general,
+pre-existing mesh with minimal mesh modification. <br><br>
+<b>Motivation:</b> remeshing to match the surfaces of a newly
+deposited layers of material in the simulation of the
+semiconductor device manufacturing process.
+                </p>
+
+            </section>
+                        <section>
+ <h3> Research - Meshing </h3>
+                <p>
+
+Our approach is to insert and remove points with local
+operations to recover the surface and post process to recover
+quality. <br><br>
+This allows for insertion of arbitrary geometries, with minimal
+requirements on geometric smoothness and on topology or
+quality of the existing mesh.<br>
+<br> The novel aspect of our approach is the surface sampling to determine point spacing to minimize the effect on the existing mesh. <br><br> This also allows for fewer requirements in the existing mesh when compared with other methods.
+</p>
+</section>
+                        <section>
+ <h3> Research - Meshing </h3>
+                <p>
+
+               <img src="images/algorithm.png" style="background-color:white">
+
+</p>
+</section>
+<section>
+ <h3> Research - Meshing </h3>
+
+<p>  
+               <img src="images/intel_small.gif">
+
+</p>
+</section>
+<section>
+ <h3> Research - Meshing </h3>
+
+                <img src="images/threeD_init.png" style="height:350px; padding:20px;">
+                <img src="images/threeD_stl.png" style="height:350px; padding:20px;"> 
+
+</section>
+<section>
+ <h3> Research - Meshing </h3>
+                <img src="images/threeD_final.png" style="height:350px; padding:20px;">
+
+                <img src="images/threeD_sampled.png" style="height:350px; padding:20px;">
+
+
+</section>
+            <section>
+                <h3> Active Projects </h3>
+                <p>
+                    <ul>
+                        Unstructured Curved Meshing for High-Order Finite Element Simulations
+
+                        <li> With Mark Shephard, Scientific Computation Research Center (RPI) </li>
+
+                        Introducing Predictive Multiscale Modeling Into Dynamic, Ecological, Integrated Building Systems For Validation And Uncertainty Analysis
+
+                        <li> With Assad Oberai, Scientific Computation Research Center and Anna Dyson, Center for Architecture Science and Ecology (RPI) </li>
+
+                        Inserting Explicit Boundaries into Anisotropic Meshes, Anisotropic Surface Meshing, and Optimal Point Insertion for Delaunay Mesh Refinement
+                        <li> With Carl Ollivier-Gooch (UBC) </li>
+                    </ul>
+
+                    <p>
+            </section>
+
+        </div>
+
+    </div>
+
+    <script src="../reveal.js/lib/js/head.min.js"></script>
+    <script src="../reveal.js/js/reveal.min.js"></script>
+
+    <script src="support/reveal.init.js"></script>
+
+</body>
+
+</html>
