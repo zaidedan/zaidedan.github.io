@@ -34,3 +34,6 @@
   opacity: 1.0;
   font-size: 20px;
 }
+html.img-right div.slide-background.present {
+    background-position: top right;
+}
