@@ -21,6 +21,10 @@
     <link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
     <link rel="stylesheet" href="support/slides.css">
 
+    <!-- adds grid  -->
+    <link rel="stylesheet" href="support/normalize.css">
+    <link rel="stylesheet" href="support/skeleton.css">
+
 
     <!-- If the query includes 'print-pdf', include the PDF print sheet -->
     <script>
@@ -40,23 +44,472 @@
 
 <body>
 
-    <div class="reveal">
+    <div class="reveal container">
         <!-- main title page -->
         <div class="slides">
-        <section data-background="images/b1.png" data-state="img-right" data-background-size="60%" data-background-color="#C8FEF6">
+            <section data-background="images/b1.png" data-state="img-right" data-background-size="100%" data-background-color="#C8FEF6">
 
-        </section>
-        <!-- acknowledgements -->
-        <section data-background="images/b2.png" data-state="img-right" data-background-size="60%" data-background-color="#C8FEF6">
+            </section>
+            <!-- acknowledgements -->
+            <section data-background="images/b2.png" data-state="img-right" data-background-size="100%" data-background-color="#C8FEF6">
 
-        </section>
+            </section>
 
-        <section>
-        <h1> Questions? </h1>
-<img src="images/dan_mesh.jpg" alt="Mesh">
-<br><br>
-        <h3> These days I don't have much time for shockwaves... </h3>
-        </section>
+            <section data-background="images/lightning.jpg">
+
+                <h2 style="position:absolute; top: 300px; right:0px; color:white; text-align:right">"A shockwave is a surface of discontinuity <br> propagating in a gas at which density <br> and velocity  experience abrupt changes." <br><br> Zempl&eacuten, 1905</h2>
+                <aside class="notes">
+                    Shockwaves occur everywhere in nature. They're present in explosions, lightning strikes, cavitation, supernovae, and even in traffic accidents. They're in our favorite movies.
+                </aside>
+            </section>
+
+            <section>
+
+                <h1 style="position:relative; top: 200px; text-align:center"> Natura non facit saltus.</h1>
+                <h3 style="position:relative; top: 250px;">(Nature does not make jumps.) <br><br> ~Lucretius, Newton, Leibniz, Darwin, ..., etc.  </h3>
+                <aside class="notes">
+                    This goes back to greek philosophers, and the study of nature. It shows up multiple times in the Origin of Species.
+                </aside>
+            </section>
+            <section>
+                <h2> 
+         In the 1700s, the first wave equation was studied by d'Alembert, Euler, Lagrange and Monge.
+$$\frac{\partial^2 u}{\partial t^2} = c^2 \frac{\partial^2 u}{\partial x^2} $$
+
+  This has solution
+ $$ u(x,t) = f(x-ct)+g(x+ct) $$
+ <aside class="notes">
+From Newton, there was no idea of a discontinuous solution in differential calculus. The math did not exist to allow for this type of solution, despite physical evidence from Daniel Bernoulli. Mathematicians d'Alembert, Euler, de la Grange, debated this until the mid 1800s. Euler used the idea of "improper" functions.
+</aside>
+</h2>
+            </section>
+            <section>
+
+                <h2>A century later, compressible flows were studied by Hugoniot, Poisson, Rankine, Rayleigh, and Stokes.</h2>
+                <br>
+                <br>
+                <h3 style="text-align:left">
+The compressible flows they studied were similar to the Euler equations, shown here as
+$$
+\mathbf{u}_t + \mathbf{f}(\mathbf{u})_x = 0
+$$
+or, expanded as
+$$
+\frac{\partial}{\partial{}t} \left[ \begin{array}{ccc} \rho{} \\ \rho u \\
+E \end{array} \right] + \frac{\partial}{\partial x}\left[
+\begin{array}{ccc} \rho{}
+u \\ \rho{}u^2 +p \\
+\rho u H
+\end{array} \right] = \mathbf{0},
+$$
+with $$H = \frac{E+p}{\rho}$$ and closure from the ideal gas law, $$p = (\gamma-1)\left(E-\frac{1}{2}\rho u^2\right)$$
+</h3>
+                <aside class="notes">
+                    It was Poisson in 1808 paper on theory of sound and Hugoniot's 1887 paper of shockwaves. This work had been discussed earlier. Early attempts to characterize shockwaves used the isothermal speed of sound, it wasn't until Rankine and other physicists improved their equation of states, and introduced conservation of energy into the system that the equations we see here took their form, and compressible shockwaves could properly be studied.
+                </aside>
+            </section>
+            <section>
+                <h2> A Discontinuous Solution </h2>
+                <h3>The Jump Conditions<h3> $$\Delta \mathbf{f} = S \Delta \mathbf{u}$$ 
+Given the left preshock state $\mathbf{u}_L$ and the postshock density, $\rho_R$, the right pressure and velocity can be computed from
+\begin{eqnarray*}
+\frac{p_R}{p_L}&=&\frac{(\gamma+1)\rho_R-(\gamma-1)\rho_L}{(\gamma+1)\rho_L-(\gamma-1)\rho_R}\\
+u_R-u_L&=&(p_L-p_R)\sqrt{\frac{2}{\rho_L\left((\gamma-1)p_L+(\gamma+1)p_R\right)}}
+\end{eqnarray*}
+Taking $\rho_R > \rho_L$ results in the physical Hugoniot curve, and $\rho_R < \rho_L$ results in the nonphysical Hugoniot curve.
+</h3>
+            </section>
+
+            <section>
+                <h2> A Discontinuous Solution </h2>
+
+                <h3>Even with this solution, the picture is not complete.</h3>
+                <br>
+                <img src="images/physshock.png" alt="Physical Shock">
+                <br>
+                <h3>In reality, a shock has a finite width, coming from the physical viscosity not present in the governing equations. 
+                </h3>
+            </section>
+
+            <section>
+                <h2> Numerical Shockwaves</h2>
+                <h3> (Emmons, 1940s)</h3>
+                <img src="images/emmons.png" alt="Shock Fitting">
+
+                <h3>Emmons assumed the idealized shock, <br> <i>underestimating the width</i>.
+                <br><br> This was the start of <b>shock-fitting</b>.</h3>
+                <aside class="notes">
+                    The first computations were hand calculations of the flow around a transonic airfoil.
+                </aside>
+            </section>
+
+            <section>
+                <h2> Numerical Shockwaves</h2>
+                <h3> (Von Neumann, Richtmyer, 1949)</h3>
+                <img src="images/vonneumann.png" alt="Shock Fitting">
+
+
+                <h3>Artificial viscosity was introduced to give shocks an internal structure whose length scale was that of the grid size, <i>overestimating the width</i>. <br><br>
+
+This was the start of <b> shock-capturing</b>.     
+</h3>
+                <aside class="notes">
+                    Developed In Los Alamos during the Manhattan Project and earlier published by just Richtmyer in 1948, LA-671, unclassified in 1993. Von Neumann appears to have come up with the idea in 1944, but artificial viscosity due to just Richtmyer. 
+                </aside>
+
+
+            </section>
+
+            <section>
+                <img src="images/godunovpaper.png" alt="Godunov's Paper"><br><br>
+                <h3>"A Difference Scheme for Numerical Solution of Discontinuous Solution of Hydrodynamic Equations" - Sergei Godunov, 1959</h3><br><br>
+
+                <img src="images/godunov.png" alt="Godunov" width="50%">
+                <aside class="notes">
+                    Also contains Godunov's Barrier Theorem. He yelled at me in Russian during my first conference presentation ever at ICCFD 6 in St. Petersburg, Russia.
+                </aside>
+                </section>
+            <section>
+<h2>Godunov-Type Finite Volume Methods</h2><br><br>
+
+<p>
+Divide the physical domain into cells $x_i$ with constant width $\Delta x$ and integrate the conserved quantities in space to get cell-averaged quantities as 
+$$ \overline{\mathbf{u}} = \frac{1}{\Delta x}
+\displaystyle\int_{x_i-\Delta x/2}^{x_i+\Delta x/2}  \mathbf{u} \enspace \Delta x $$
+Integrating the full equations in space then gives
+$$ \Delta x \overline{\mathbf{u}}_t + \mathbf{f}(\mathbf{u}(x_{i+\frac{1}{2}}))-\mathbf{f}(\mathbf{u}(x_{i-\frac{1}{2}})) = \mathbf{0}
+$$
+Discretizing the temporal derivative in time $t^n$ to $t^{n+1}$ leads to
+$$ \overline{\mathbf{u}}_t = \frac{\overline{\mathbf{u}}^{n+1}-\overline{\mathbf{u}}^n}{\Delta t} $$
+
+</p>
+</section>
+<section>
+<h2>Godunov-Type Finite Volume Methods</h2><br><br>
+<p>
+The final scheme, explicit Forward Euler in space and time with $$(\bar{\;})$$ dropped for simplicity, is then
+$$ \mathbf{u}^{n+1}_i = \mathbf{u}^n_i - \frac{\Delta t}{\Delta x}(\mathbf{f}^n_{i+\frac{1}{2}}(\mathbf{u}^n_i,\mathbf{u}^n_{i+1})-\mathbf{f}^n_{i-\frac{1}{2}}(\mathbf{u}^n_{i-1},\mathbf{u}^n_{i})) $$
+with the flux $$\mathbf{f}^n_{i+\frac{1}{2}}(\mathbf{u}^n_i,\mathbf{u}^n_{i+1})$$ coming from a flux function (Riemann solver).<br><br>
+
+Godunov's method introduces a ``viscosity" for numerical reasons.<br><br>
+
+Godunov's method looks perfect; simple reasoning based on exact solutions of the governing equations.
+</p>
+            </section>
+
+            <section>
+            <h2> But what about shock fitting? </h2><br>
+                <img src="images/moretti.png" alt="Moretti"><br><h3>
+Moretti (1974) also argued that shock capturing was an attempt to differentiate the nondifferentiable. 
+            </section>
+
+            <section>
+            <h2> Issues with shock capturing </h2>
+Early attempts to capture shocks led to shocks that were badly smeared or oscillatory. <br><br> Since then, there are many anomalies that have been identified, such as
+  <div class="row">
+    <div class="one-half column">
+
+<p class="fragment ">Oscillations behind slowly-moving shocks</p>
+<p class="fragment ">Start-up errors</p>
+<p class="fragment ">Wall heating</p>
+<p class="fragment ">Unstable equilibria
+</p>
+<p class="fragment ">Slow convergence to steady state</p>
+<p class="fragment ">First-order errors in ``high-order'' schemes</p>
+<p class="fragment ">Carbuncles <br>
+</p>
+</div>
+    <div class="fragment one-half column">
+    <p>
+        <img src="images/carbuncle1.png" alt="Carbuncle1" width="80%"> 
+</p>
+    </div>
+  </div>
+      <p>
+
+  <b> Idea: </b> Can we relate these problems to a root cause? 
+  </p>
+  <aside class="notes">
+  The carbuncle derives its name from the medical term, which I strongly recommend you avoid looking up. It was originally coined by Mike Peery and Scott Imlay in the 80s, who went on to found TecPlot.
+  </aside>
+            </section>
+
+<section>
+<h2> Intermediate Shock States </h2>
+<img src="images/shockstates.png" alt="Shock States" width="70%">
+<h3>For a single captured shock to be located anywhere on a 1D grid, at least one intermediate state is needed.<br><br>
+
+Shock-capturing methods treat these intermediate states with value that they should not have, immediately treating them as if they satisfies the governing equations.<br><br>
+
+However, inside a shock, local thermodynamic equilibrium is not satisfied.
+</h3>
+</section>
+
+<section>
+<h2>Stationary Shockwaves </h2><br><br>
+  <div class="row">
+    <div class="one-half column">
+
+<h3>The intermediate state lies on the nonphysical branch of the Hugoniot.<br><br>
+This is an exact result for the Godunov, Roe, and CUSP Riemann solvers, and approximately true for many others.<br><br>
+ Stationary shocks with more than one intermediate state still have intermediate states clustered around the nonphysical Hugoniot.
+ <br><br>$$\mathbf{f}_{L} = \mathbf{f}_{R} \neq \mathbf{f}_M$$</h3>
+
+</div>
+    <div class="one-half column">
+<img src="images/statshock.png" alt="Shock States" width="100%">
+
+    </div>
+</div>
+</section>
+
+<section>
+<h2>Stationary Shockwaves </h2><br><br>
+
+<h3>So what's anomalous about the stationary shock? Lets compute shock position.
+
+<img src="images/shockpos.png" alt="Shock Position" width="50%"><br><br>
+Because the Hugoniot is non-linear, the shock positions calculated from the conserved variables do not agree.
+</h3>
+</section>
+<section>
+<h2>Wall Heating</h2>
+<p>
+To show how shock position plays a role in wall heating, consider two control volumes:
+<ul>
+<li><b> Local </b>contains only the region immediately around the shock.</li>
+<li><b> Global </b>  contains the whole domain.</li>
+</ul>
+</p>
+<img src="images/cvs.png" alt="Control Volumes" width="80%">
+
+</section>
+
+<section>
+<h2>Wall Heating</h2>
+<p>
+Mach 1.1 shock (Top) and Mach 10$^6$ shock (Bottom). 
+
+Shock positions for local (middle) and global (right) control volumes shown.
+
+<img src="images/shockloc1.png" alt="M1" width="100%"><br><br>
+<img src="images/shockloc2.png" alt="M100000" width="100%">
+
+</p>
+<aside class="notes">
+This is expected, using a global control volume, the shock positions agree. No surprise, given conservation, but still demonstrates that if we could fix the error from the start, this problem would go away.
+</aside>
+</section>
+
+<section>
+<h2>Slowly Moving Shocks</h2>
+<img src="images/slowshock.gif" alt="Slowly Moving Shockwave" width="100%">
+
+<p>
+Slowly moving shocks generate spurious waves.<br><br>
+The intermediate states of a slowly moving shock remain close to the equilibrium states of a stationary shock. 
+</p>
+<aside class="notes">
+This is particularly problematic if you have interactions with turbulence, where the spurious waves can throw off your turbulent statistics.
+</aside>
+</section>
+
+<section>
+<h2>The 1D Carbuncle</h2>
+<p>
+In one dimension, the carbuncle manifests itself as an initially stationary shock that does not remain stationary. <br><br>This problem can be set up exactly as a stationary shock problem, with the intermediate state varied as $$\rho_M = x_S\rho_L + (1-x_S)\rho_R$$
+and the remaining variables computed to lie on the nonphysical branch of the Hugoniot curve.<br><br>
+To prevent  waves from leaving the domain, a fixed mass outflow boundary condition is used.
+</p>
+</section>
+
+<section>
+<section>
+<h2>The 1D Carbuncle</h2><br><br><br>
+<img src="images/carbuncle.gif" alt="1D Carbuncle" width="100%">
+<p>
+Here, a stationary shock is initialized, and left alone.
+</p>
+</section>
+<section>
+<h2>The 1D Carbuncle</h2><br><br><br>
+<img src="images/hug-nocarb2.png" alt="1D Carbuncle" width="40%">
+<img src="images/hug-carb2.png" alt="1D Carbuncle" width="40%">
+<p>
+Further analysis shows the unstable states touch the stationary states along the non-physical Hugoniot curve.
+</p>
+</section>
+</section>
+
+<section>
+<h2>New Flux Functions</h2>
+<p>
+<b>Ideas: </b>
+<ul>
+<li>Inside the shock, the assumption of local thermodynamic equilibrium is invalid - why should we use the equation of state inside for these intermediate states? </li>
+<li> Straight-line systems do not suffer from these anomalies. Define a modified flux that allows for intermediate shock states to be only on a straight line in state space.</li>
+<li> Most shockwave anomalies occur around slowly moving shocks - focus on getting the stationary case exactly.</li>
+ 
+</ul>
+<b>Goal:</b> construct a flux function with one-point stationary shocks and no positional ambiguity.
+</p>
+</section>
+<section>
+<h2>Interpolated Fluxes</h2>
+<p>
+Intermediate states have no physical meaning but are book-keeping devices to ensure conservation, thus the values of the conserved quantities must be accepted.  <br><br>
+
+In this artificial situation, any interpretation of them is legitimate. Why should $\mathbf{f}(\mathbf{u}_M) = \mathbf{f}_M$? <br><br>
+Instead of using the equilibrium equation of state to compute the flux, use neighboring information to interpolate its value. <br><br>
+No pseudo-physical arguments will be invoked to evaluate $\mathbf{f}_M$. It is motivated solely by the desired numerical behavior.
+</p>
+</section>
+<section>
+<h2>Interpolated Fluxes</h2><br><br><p>
+To begin, suppose the flux is extrapolated from one side as 
+$$\mathbf{f}_i^* =\mathbf{f}_{i-1}+\tilde{\mathbf{A}}_i(\mathbf{u}_i-\mathbf{u}_{i-1})  $$
+and extrapolated from the other side as
+$$
+\mathbf{f}_i^* =\mathbf{f}_{i+1}-\tilde{\mathbf{A}}_i(\mathbf{u}_{i+1}-\mathbf{u}_{i}).
+$$
+where $\mathbf{A} = \frac{\partial \mathbf{f}}{\partial \mathbf{u}}$. These two equations are consistent if
+$$
+\mathbf{f}_{i+1}-\mathbf{f}_{i-1} =\tilde{\mathbf{A}}_i(\mathbf{u}_{i+1}-\mathbf{u}_{i-1}).
+$$e simplest flux Jacobian having this property is the cell-centered Roe matrix $\tilde{\mathbf{A}}(\mathbf{u}_{i-1},\mathbf{u}_{i+1})$. The flux can be interpolated from both sides as
+$$\mathbf{f}^*_i = \frac{1}{2}(\mathbf{f}_{i-1}+\mathbf{f}_{i+1})-\frac{1}{2}\tilde{\mathbf{A}}_{i-1,i+1}(\mathbf{u}_{i+1}-2\mathbf{u}_{i}+\mathbf{u}_{i-1}). $$
+
+</p>
+</section>
+
+<section>
+<h2>Interpolated Fluxes</h2><br><br>
+<p>
+<ul>
+<li> If the problem is linear so that the Jacobian matrix $\mathbf{A}(\mathbf{u})$ is constant, then $\mathbf{f}^*_{i} = \mathbf{f}_{i}$.</li>
+<li> For nonlinear systems with smooth data, $$\mathbf{f}^*\simeq \mathbf{f} + \frac{(\Delta x)^2}{2}\mathbf{A}_x\mathbf{u}_x  \simeq \mathbf{f} + \frac{1}{2} \Delta \mathbf{A} \Delta \mathbf{u} $$
+</li>
+<li> Near a discontinuity, the effect is $\mathcal{O}(1)$. </li>
+<li> For data corresponding to a one-point stationary shock, then $\mathbf{f}^*_i$ is constant, not only on each side of the shock, but also in the intermediate cell. </li>
+$$ \mathbf{f}_L =  \mathbf{f}^*_L = \mathbf{f}^*_M = \mathbf{f}^*_R = \mathbf{f}_R $$
+</p>
+</section>
+
+<section>
+<h2>Flux Function A</h2><p>
+With interpolated fluxes defined, a new flux function can be described similar to the original Roe framework. A rather conventional scheme might take the form
+$$
+\mathbf{f}_{i+\frac{1}{2}}^A = \frac{1}{2}(\mathbf{f}^*_{i} + \mathbf{f}^*_{i+1}) - \frac{1}{2}|\tilde{\mathbf{A}}_{i+\frac{1}{2}}|(\mathbf{u}_{i+1}-\mathbf{u}_i)$$
+but this does not preserve the desired shock structure. A scheme that does is
+$$
+\mathbf{f}_{i+\frac{1}{2}}^A = \frac{1}{2}(\mathbf{f}^*_{i} + \mathbf{f}^*_{i+1}) - \frac{1}{2}\text{sign}(\tilde{\mathbf{A}}_{i+\frac{1}{2}})(\mathbf{f}^*_{i+1} - \mathbf{f}^*_{i})
+$$
+where $\text{sign}(\mathbf{A}) = \mathbf{R}\text{sign}(\Lambda)\mathbf{L}$.<br><br> However this flux is not $C^0$ continuous.
+</p>
+</section>
+
+<section>
+<h2>Flux Function B</h2><br><br>
+To overcome the difficulties of new flux function A, another flux function, B, is developed. <br><br>
+Inspired by Roe's Riemann solver, it can be written as  $$
+\mathbf{f}^B_{i+\frac{1}{2}} = \frac{1}{2}(\mathbf{f}^*_{i} + \mathbf{f}^*_{i+1}) - \frac{1}{2}|\overline{\mathbf{A}}_{i+\frac{1}{2}}|(\mathbf{u}_{i+1} - \mathbf{u}_{i})
+$$
+where $\overline{\mathbf{A}}_{i+\frac{1}{2}}$ is the Roe matrix across cells $i-1$ and $i+2$, 
+$$
+\overline{\mathbf{A}}_{i+\frac{1}{2}}(\mathbf{u}_{i+2}-\mathbf{u}_{i-1}) = \mathbf{f}_{i+2}-\mathbf{f}_{i-1}
+$$
+The matrix $\overline{\mathbf{A}}_{i+\frac{1}{2}}$ looks at the big picture, around the shock.
+</section>
+<section>
+<section>
+<h2>Slowly Moving Shocks</h2><br><p>
+<div class="row">
+    <div class="four columns">
+Roe<br><br>
+
+<img src="images/SSRoe001_m.png" width="80%"><br><br>
+
+<img src="images/SSRoe001_ph.png" width="80%">
+
+
+</div>
+<div class="four columns">
+
+A<br><br>  <img src="images/SSA001_m.png" width="80%"><br><br><img src="images/SSA001_ph.png" width="80%"></div>
+  <div class="four columns">
+B<br><br>
+<img src="images/SSB001_m.png" width="80%"><br><br><img src="images/SSB001_ph.png" width="80%">
+
+</div>
+</div>
+</p>
+</section>
+<section>
+<h2>Slowly Moving Shocks</h2><br><h3>
+
+<img src="images/slowshockM2.png" width="40%">
+<img src="images/slowshockM10.png" width="40%">
+</h3>
+</section>
+</section>
+
+<section>
+<h2>Wall Heating</h2><br><br>
+<h3>
+
+<img src="images/nohABM10.png" width="40%">
+<img src="images/nohwallerror.png" width="40%">
+</h3>
+</section>
+<section>
+<h2>The 1D Carbuncle</h2><br><br>
+<div class="row">
+    <div class="one column">
+Roe <br><br><br> A <br><br><br> B
+</div>
+        <div class="eleven columns">
+
+<img src="images/eigfluxRoe.png" width="100%">
+<img src="images/eigfluxA.png" width="100%">
+<img src="images/eigfluxB.png" width="100%">
+</div>
+</div>
+</section>
+
+<section>
+<h2>Further Observations</h2><p>
+By construction, both new flux functions show no ambiguity in shock position for the stationary shock. <br><br>
+Both new flux functions perform comparably to Roe's Riemann solver on standard test problems (Shu-Osher, Sod, Woodward-Colella double blast wave).<br><br>
+Fairly standard MUSCL-type reconstruction can be used to obtain 
+second-order accuracy without compromising any properties of the 
+first-order scheme.<br><br>
+Examining Burgers' equation, flux function A is not TVD while flux function B is TVD.
+</p>
+</section>
+<section>
+<h2>Conclusions</h2><p>
+The internal states of a captured shock should not be taken literally; in particular it should not be assumed that they are in thermodynamic equilibrium. <br><br>
+Using the equilibrium equation of state for these internal cells gives rise to ambiguity in the shock location.\\[0.25cm]
+This ambiguity can be linked to many of the anomalies that affect shock-capturing schemes.<br><br>
+ It is possible to smooth the fluxes in a way that has no effect on linear systems but which sets the internal fluxes of a stationary shock equal to the external fluxes.\\[0.25cm]
+This can be made the basis of schemes that eliminate or greatly reduce anomalous behavior.
+</p>
+</section>
+<section>
+
+<h2>A few common questions:</h2>
+\begin{itemize}
+\item Aren't you just avoiding the problem, ignoring the small scales inside the shockwave? <br><br><i>Yes, Exactly.</i><br><br><br><br>
+\item Isn't this just a form of artificial viscosity?<br><br> <i>Mathematically, yes, although it is proportional to </i>$\mathbf{A}_x|\mathbf{u}_x|$ <i>rather than</i> $\mathbf{u}_x|\mathbf{u}_x|$<i>, such as that of Von Neumann - Richtmyer.</i>
+</section>
+
+            <section>
+                <h1> Questions? </h1>
+                <img src="images/dan_mesh.jpg" alt="Mesh">
+                <br>
+                <br>
+                <h3> These days I don't have much time for shockwaves... </h3><br><br><br>
+                <h3> This presentation available at www.danielzaide.com/p/cse2015.html </h3>
+            </section>
         </div>
 
     </div>

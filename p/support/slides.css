@@ -2,21 +2,23 @@
   text-align: left;
   line-height: 1.5;
   margin: 20px;
+    font-size: 150%;
+
 }
 .reveal h1 {
-  line-height: 1.2;
+  line-height: 1.4;
   /*font-weight: bold; */
 }
 .reveal h2 {
-  line-height: 1.2;
+  line-height: 1.4;
   /*font-weight: bold; */
 }
 .reveal h3 {
-  line-height: 1.2;
+  line-height: 1.4;
   /*font-weight: bold; */
 }
 .reveal h4 {
-  line-height: 1.2;
+  line-height: 1.4;
 }
 .reveal ul li {
   text-align: left;
