@@ -42,7 +42,7 @@ Reveal.initialize({
 	  // Example values. To generate your own, see the socket.io server instructions.
 	  secret: 'null', // Obtained from the socket.io server. Gives this (the master) control of the presentation
 	  id: 'bba5f98ec355c956', // Obtained from socket.io server
-	  url: 'revealjs.jit.su:80' // Location of socket.io server
+	  url: 'revealjs.jit.su' // Location of socket.io server
 	},
 
 });
