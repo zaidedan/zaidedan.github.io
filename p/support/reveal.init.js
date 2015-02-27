@@ -31,11 +31,11 @@ Reveal.initialize({
 	{ src: '../reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
 	{ src: '../reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
 	{ src: '../reveal.js/plugin/math/math.js', async: true },
-  { src: '//cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.16/socket.io.min.js', async: true },
-  { src: 'plugin/multiplex/client.js', async: true },
+  // { src: '//cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.16/socket.io.min.js', async: true },
+  // { src: 'plugin/multiplex/client.js', async: true },
 
-  // and if you want speaker notes
-  { src: 'plugin/notes-server/client.js', async: true }
+  // // and if you want speaker notes
+  // { src: 'plugin/notes-server/client.js', async: true }
 
 	]
 
