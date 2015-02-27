@@ -41,8 +41,8 @@ Reveal.initialize({
   multiplex: {
       // Example values. To generate your own, see the socket.io server instructions.
       secret: 'null', // Obtained from the socket.io server. Gives this (the master) control of the presentation
-      id: 'ed399d44352e1d88', // Obtained from socket.io server
-      url: 'revealjs.jit.su:80' // Location of socket.io server
+      id: '574bd24a35039bed', // Obtained from socket.io server
+      url: '128.113.130.135:1112' // Location of socket.io server
   },
 
 
