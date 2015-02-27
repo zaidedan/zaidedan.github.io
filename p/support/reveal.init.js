@@ -31,8 +31,8 @@ Reveal.initialize({
 	{ src: '../reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
 	{ src: '../reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
 	{ src: '../reveal.js/plugin/math/math.js', async: true },
-  { src: '//cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.16/socket.io.min.js', async: true },
-  { src: 'plugin/multiplex/client.js', async: true },
+{ src: 'http://revealjs.jit.su/socket.io/socket.io.js', async: true }, 
+  { src: '../reveal.js/plugin/multiplex/client.js', async: true },
 
   // // and if you want speaker notes
   // { src: 'plugin/notes-server/client.js', async: true }
@@ -41,9 +41,8 @@ Reveal.initialize({
   multiplex: {
       // Example values. To generate your own, see the socket.io server instructions.
       secret: 'null', // Obtained from the socket.io server. Gives this (the master) control of the presentation
-      id: '574bd24a35039bed', // Obtained from socket.io server
-      url: '128.113.130.135:1112' // Location of socket.io server
+      id: '6a999be3a9afaca2', // Obtained from socket.io server
+      url: 'revealjs.jit.su:80' // Location of socket.io server
   },
-
 
 });
