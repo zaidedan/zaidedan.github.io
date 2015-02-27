@@ -7,7 +7,7 @@ Reveal.initialize({
 	center: false,
 	backgroundTransition: 'slide',
 	theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-	transition: Reveal.getQueryHash().transition || 'none', // default/cube/page/concave/zoom/linear/fade/none
+	transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
 	slideNumber: false,
 	math: {
 		mathjax: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',

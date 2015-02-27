@@ -6,7 +6,7 @@
 }
 .reveal h1 {
     line-height: 1.4;
-    font-size: 48px;
+    font-size: 72px;
 }
 .reveal h2 {
     line-height: 1.4;
@@ -14,16 +14,16 @@
 }
 .reveal h3 {
     line-height: 1.4;    
-    font-size: 36px;
+    font-size: 32px;
 }
 .reveal h4 {
     line-height: 1.4;
-    font-size: 30px;
+    font-size: 26px;
 }
 .reveal ul li {
     text-align: left;
     line-height: 1.1;
-    margin: 20px;
+    margin: 10px;
     font-size: 22px;
 }
 .reveal .slides img {
@@ -47,6 +47,9 @@
     left: -50%;
 }
 .reveal .controls {
-    display: hidden;
+    display: none;
     opacity: 0.0;
+}
+.MathJax_Display {
+  padding: 20px !important;
 }
