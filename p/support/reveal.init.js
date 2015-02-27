@@ -37,7 +37,7 @@ Reveal.initialize({
   // and if you want speaker notes
   { src: 'plugin/notes-server/client.js', async: true }
 
-	]
+	],
 	multiplex: {
 	  // Example values. To generate your own, see the socket.io server instructions.
 	  secret: 'null', // Obtained from the socket.io server. Gives this (the master) control of the presentation
