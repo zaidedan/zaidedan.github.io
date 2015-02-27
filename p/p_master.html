@@ -47,6 +47,13 @@
     <div class="reveal container">
         <!-- main title page -->
         <div class="slides">
+        <section>
+<h2>Why do numerical shockwaves jump <br> to the wrong conclusions?<br><br>Daniel W. Zaide</h2><br><br>
+
+<h3>This is an experimental presentation, <br> developed using reveal.js and powered by socket.js.<br><br>
+You can follow along at <b>www.unstructuredmesh.com</b>
+</h3>
+        </section>
             <section data-background="images/b1.png" data-background-size="100%" data-background-color="#C8FEF6">
 
             </section>
@@ -155,7 +162,7 @@ Taking $\rho_R > \rho_L$ results in the physical Hugoniot curve, and $\rho_R < \
 This was the start of <b> shock-capturing</b>.     
 </h4>
                 <aside class="notes">
-                    Developed In Los Alamos during the Manhattan Project and earlier published by just Richtmyer in 1948, LA-671, unclassified in 1993. von Neumann appears to have come up with the idea in 1944, but artificial viscosity due to just Richtmyer. End of WWII by Cold War,
+    Developed In Los Alamos during the Manhattan Project and earlier published by just Richtmyer in 1948, LA-671, unclassified in 1993. von Neumann appears to have come up with the idea in 1944, but it did not work . Shock tracking was originally used at Los Alamos in 1943 and 1944 by Peierls, but it was not stable.
                 </aside>
 
 
@@ -630,7 +637,7 @@ A comparison of the error in momentum demonstrates the effect of the new fluxes.
   { src: '../reveal.js/plugin/multiplex/master.js', async: true },
         { src: '../reveal.js/plugin/multiplex/client.js', async: true },
   // // and if you want speaker notes
-  // { src: 'plugin/notes-server/client.js', async: true }
+  { src: 'plugin/notes-server/client.js', async: true },
 
     ],
   multiplex: {
