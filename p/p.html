@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>D.W. Zaide - IMR 2015</title>
+    <meta name="description" content="A Daniel W. Zaide Presentation">
+    <meta name="author" content="Daniel W. Zaide">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="../reveal.js/css/reveal.min.css">
+    <!-- <link rel="stylesheet" href="../reveal.js/css/theme/plain.css" id="theme"> -->
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+    <link rel="stylesheet" href="support/slides.css">
+    <!-- adds grid  -->
+    <link rel="stylesheet" href="support/normalize.css">
+    <link rel="stylesheet" href="support/skeleton.css">
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+    if (window.location.search.match(/print-pdf/gi)) {
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = '../reveal.js/css/print/pdf.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    }
+    </script>
+    <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+</head>
+
+<body>
+    <div class="reveal container">
+        <!-- main title page -->
+        <div class="slides">
+            <section>
+                <h2>A comparison of $C^0$ and $G^1$ continuous curved tetrahedral meshes for high-order finite element simulations<br></h2>
+                <br>
+                <h3><b>Daniel W. Zaide, Qiukai Lu, and Mark Shephard</b></h3>
+                <br>
+                <br>
+                <h4>Scientific Computation Research Center, Rensselaer Polytechnic Institute<br></h4>
+                <br>
+                <br>
+                <h4>These slides are available at <b>www.unstructuredmesh.com</b></h4>
+            </section>
+            <section>
+                <h2> Introduction </h2>
+                <p>
+                    <br> Finite element methods are sensitive to the accuracy and smoothness of the mesh that approximates the curved domain boundaries.
+                    <br>
+                    <br> Increasing interelement continuity has demonstrated increased accuracy on quadrilateral and hexahedral meshes.
+                    <br>
+                    <br> We perform a preliminary study of the effects of surface triangle continuity, comparing a $C^0$ continuous surface with a $G^1$ continuous surface representation.</p>
+            </section>
+            <section>
+                <h2> Surface Continuity </h2>
+                <p>
+                    <br>
+                    <div class="row">
+                        <div class="one-half column">
+                            <h4>$C^0$ continuity<br> normals in different directions <br> different magnitude<br><br>  $G^1$ continuity<br> normals in same direction, <br>different magnitude  
+<br><br> $C^1$ continuity,<br>  normals in same direction, <br>same magnitude
+</h4>
+                        </div>
+                        <div class="one-half column">
+                            <img src="images/imr2015/tikz0.png" alt="C0 Continuity" width="70%">
+                            <br>
+                            <img src="images/imr2015/tikz1.png" alt="G1 Continuity" width="70%">
+                            <br>
+                            <img src="images/imr2015/tikz2.png" alt="C1 Continuity" width="70%">
+                            <br>
+                        </div>
+                    </div>
+            </section>
+            <section>
+                <h2> $4^{\mathrm{th}}$ Order B{\'e}zier Triangle </h2>
+                <p>
+                    $C^0$ continuity obtained from the B{\'e}zier triangle, $4^{\mathrm{th}}$ order being the minimum needed for $G^1$ continuity. </p> <img src="images/imr2015/tikz3.png" alt="G1 Continuity" width="40%">
+                <br>
+                <p>
+                    $$ \mathbf{B}(u,v,w) = \displaystyle\sum_{i+j+k=4} \frac{4!}{i!j!k!}u^iv^jw^k\mathbf{P}_{ijk} $$
+                </p>
+            </section>
+            <section>
+                <h2> $G^1$ Continuous Triangle </h2>
+                <p>
+                    $G^1$ continuity obtained from the $4^{\mathrm{th}}$ order triangle of Walton and Meek. </p><img src="images/imr2015/tikz4.png" alt="G1 Continuity" width="40%">
+                <br>
+                <p>
+                    And can be computed using the $4^{\mathrm{th}}$ order B{\'e}zier equation, blending pairs of points to form the internal B{\'e}zier points, e.g. $$ \mathbf{P}_{112} = \frac{1}{v+w}(v\mathbf{G}_{12} + w\mathbf{G}_{21}) $$
+                </p>
+            </section>
+            <section>
+                <h2> Mesh Curving </h2>
+                <p>
+                    $G^1$ continuity obtained from the $4^{\mathrm{th}}$ order triangle of Walton and Meek. </p><img src="images/imr2015/tikz5.png" style="padding:22px" alt="Interpolation Points" width="30%"><img src="images/imr2015/arrowright.png" style="padding:25px" alt="Control Points" width="10%"> <img src="images/imr2015/tikz6.png" style="padding:25px" alt="Control Points" width="30%">
+                <br>
+                <p>
+                    Interpolation points are from surface parametrization using the optimal locations of Chen and Babu&scaron;ka.
+                    <br>
+                    <br> For $G^1$ control points, the algorithm of Walton and Meek is used except on CAD edges, where edge tangents are used instead of surface normals.</p>
+            </section>
+            <section>
+                <h2> Blended Tetrahedron </h2>
+                <p>
+                    The tetrahedral mapping we use the blending approach of Dey et al., to account for differences in exterior and interior shape functions, specifically from $G^1$ surface triangles. $$ \begin{eqnarray*} \mathbf{x}_i(\boldsymbol\xi) &=& (1-\xi_1)^{2} F_1(\xi_{F_1}') + (1-\xi_2)^{2} F_2(\xi') \\ &+& (1-\xi_3)^{2} F_3(\xi') (1-\xi_4)^{2} F_4(\xi') \\ &-& (1 - \xi_1 - \xi_2)^{2} E_1 (\xi') - (1 - \xi_1 - \xi_3)^{2} E_2 (\xi') \\ &-& (1 - \xi_1 - \xi_4)^{2} E_3 (\xi') - (1 - \xi_2 - \xi_3)^{2} E_4 (\xi') \\ & -& (1 - \xi_2 - \xi_4)^{2} E_5 (\xi') - (1 - \xi_3 - \xi_4)^{2} E_6 (\xi') \\ & +& \xi_1^{2} V_1 + \xi_2^{2} V_2 + \xi_3^{2} V_3 + \xi_4^{2} V_4 \end{eqnarray*} $$ where $\boldsymbol\xi = (\xi_1,\xi_2,\xi_3,\xi_4)$ are barycentric coordinates and $F_i$, $E_i$, and $V_i$ correspond to faces, edges, and vertices.</p>
+            </section>
+            <section>
+                <h2> Results </h2>
+                <p>
+                    Curved elements implemented in Nektar++, a high-order finite element code.
+                    <br>
+                    <br> Meshes are identical except for boundary surfaces and tets.
+                    <br>
+                    <br> Accuracy is measured in the $L_2$ and $L_\infty$ norm of solution and $L_2$ norm of solution gradient. $$ \begin{eqnarray*} L_2(u^{h,p}) &=& \left(\int_{\Omega_M} (u^{h,p}-u_{exact})^2 \;\mathrm{d}\Omega_M \right)^{1/2} \\ L_\infty(u^{h,p}) &=& \max_{\Omega_M} \left|u^{h,p}-u_{exact}\right| \\ L_2(\nabla u^{h,p})& =& \left(\int_{\Omega_M} \nabla(u^{h,p}-u_{exact})\cdot \nabla(u^{h,p}-u_{exact}) \; \mathrm{d}\Omega_M \right)^{1/2} \end{eqnarray*} $$
+                </p>
+            </section>
+            <section>
+                <h2> Hagen-Poiseuille Flow </h2>
+                <p>
+                    Fully developed, laminar viscous flow through a cylindrical pipe of unit radius and length of 10 in the $z$- direction $$ u_z(\mathbf{x}) = -\frac{1}{4\nu}\left(\frac{\mathrm{d}p}{\mathrm{d}z}\right)(R^2-r^2), \quad p(\mathbf{x}) = 1-\frac{z}{10}, \quad r^2 = x^2 + y^2 $$ with $u_x = u_y = 0$, $\nu = 0.025$, such that $u_z = 1-r^2$.
+                    <br>
+                    <br>
+                                    </p>
+                                    <h3>
+                    <div class="row">
+                                                <div class="three columns">
+                                                <br>
+</div>
+                        <div class="three columns">
+                            <table>
+                                <thead style="border-bottom: 2px solid black;">
+                                    <tr>
+                                        <th></th>
+                                        <th></th>
+                                        <th>interp. error.</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                        <td>$C^0$</td><td>&nbsp;</td>
+                                        <td>$1.19\times 10^{-5}$ </td>
+                                        </tr>
+                                            <tr>
+                                                <td>$G^1$</td><td>&nbsp;</td>
+                                                <td>$6.32\times 10^{-3}$</td>
+                                                </tr>
+    
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="six columns">
+                            <img src="images/imr2015/cylinder.png" alt="Cylinder" width="70%">
+                        </div>
+                    </div>
+                    </h3>
+            </section>
+                        <section>
+                <h2> Hagen-Poiseulle Flow </h2>
+                <p>$x$-velocity</p><h3>
+                <table  cellspacing="10">
+                <thead style="border-bottom: 2px solid black;">
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th>p</th>
+                        <th style="padding:5px 25px 5px 25px;">$L_2(p^{h,p})$</th>
+                        <th style="padding:5px 25px 5px 25px;">$L_\infty(p^{h,p}) $</th>
+                        <th style="padding:5px 25px 5px 25px;">$L_2(\nabla p^{h,p})$</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>$C^0$</td><td>&nbsp;</td>
+                        <td>5 </td>
+                        <td style="padding:5px 25px 5px 25px;">$8.57\times 10^{-4}$</td>
+                        <td style="padding:5px 25px 5px 25px;">$3.68\times 10^{-3}$ </td>
+                        <td style="padding:5px 25px 5px 25px;">$6.34\times 10^{-3}$  </td>
+                        </tr>
+                    <tr>
+                        <td>$G^1$</td><td>&nbsp;</td>
+                        <td>5 </td>
+                        <td style="padding:5px 25px 5px 25px;">$1.67\times 10^{-3}$ </td>
+                        <td style="padding:5px 25px 5px 25px;">$1.99\times 10^{-2}$ </td>
+                        <td style="padding:5px 25px 5px 25px;">$1.36\times 10^{-2}$  </td>
+                        </tr>
+                    <tr>
+                        <td>$C^0$</td><td>&nbsp;</td>
+                        <td>6 </td>
+                        <td style="padding:5px 25px 5px 25px;">$3.10\times 10^{-4}$ </td>
+                        <td style="padding:5px 25px 5px 25px;">$2.43\times 10^{-3}$ </td>
+                        <td style="padding:5px 25px 5px 25px;">$3.08\times 10^{-4}$  </td>
+                        </tr>
+                      <tr>
+                        <td>$G^1$</td><td>&nbsp;</td>
+                        <td>6 </td>
+                        <td style="padding:5px 25px 5px 25px;">$1.65\times 10^{-3}$ </td>
+                        <td style="padding:5px 25px 5px 25px;"> $1.56\times 10^{-3}$ </td>
+                        <td style="padding:5px 25px 5px 25px;"> $1.30\times 10^{-2}$  </td>
+                        </tr>
+                </tbody>
+            </table>
+                </h3>
+                <p>Accuracy of $G^1$ dominated by geometric error.<br>$y-$velocity results are similar.
+</p>
+            </section>
+            <section>
+                <h2> Hagen-Poiseulle Flow </h2>
+                <p>Pressure</p><h3>
+                <table  cellspacing="10">
+                <thead style="border-bottom: 2px solid black;">
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th>p</th>
+                        <th style="padding:5px 25px 5px 25px;">$L_2(p^{h,p})$</th>
+                        <th style="padding:5px 25px 5px 25px;">$L_\infty(p^{h,p}) $</th>
+                        <th style="padding:5px 25px 5px 25px;">$L_2(\nabla p^{h,p})$</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>$C^0$</td><td>&nbsp;</td>
+                        <td>5 </td>
+                        <td style="padding:5px 25px 5px 25px;">1.71$\times 10^{-3}$ </td>
+                        <td style="padding:5px 25px 5px 25px;">$2.40\times 10^{-2}$ </td>
+                        <td style="padding:5px 25px 5px 25px;">$5.50\times 10^{-2}$  </td>
+                        </tr>
+                    <tr>
+                        <td>$G^1$</td><td>&nbsp;</td>
+                        <td>5 </td>
+                        <td style="padding:5px 25px 5px 25px;">4.51$\times 10^{-3}$ </td>
+                        <td style="padding:5px 25px 5px 25px;">$\mathbf{5.25\times 10^{-3}}$ </td>
+                        <td style="padding:5px 25px 5px 25px;">$\mathbf{2.75\times 10^{-2}}$  </td>
+                        </tr>
+                    <tr>
+                        <td>$C^0$</td><td>&nbsp;</td>
+                        <td>6 </td>
+                        <td style="padding:5px 25px 5px 25px;">4.40$\times 10^{-4}$ </td>
+                        <td style="padding:5px 25px 5px 25px;">$6.85\times 10^{-3}$ </td>
+                        <td style="padding:5px 25px 5px 25px;">$2.12\times 10^{-2}$  </td>
+                        </tr>
+                      <tr>
+                        <td>$G^1$</td><td>&nbsp;</td>
+                        <td>6 </td>
+                        <td style="padding:5px 25px 5px 25px;">4.47$\times 10^{-3}$ </td>
+                        <td style="padding:5px 25px 5px 25px;"> $\mathbf{4.61\times 10^{-3}}$ </td>
+                        <td style="padding:5px 25px 5px 25px;">$\mathbf{1.77\times 10^{-2}}$   </td>
+                        </tr>
+                </tbody>
+            </table>
+                </h3>
+                <p>$G^1$ has lower error in several norms, but far from conclusive.
+</p>
+            </section>
+            <section>
+                <h2> Conclusions </h2>
+                <p>
+                    For a simple flow problem, $G^1$ continuous surface patches do not significantly improve solution accuracy compared to similar $C^0$ continuous patches.
+                    <br>
+                    <br> The increased interpolation error of $G^1$ triangles appears to outweigh the potential benefits.
+                    <br>
+                    <br>
+                </p>
+            </section>
+            <section>
+                <h2> Other Lessons </h2>
+                <p>
+                    Geometric continuity is far from the only factor; there are relevant metrics to investigate, such as the scaled Jacobian.
+                    <br>
+                    <br> The effect of curvature may also play a role, to achieve $G^1$ continuity, the derivatives may have to change rapidly to match direction on triangle edges.
+                </p>
+            </section>
+            <section>
+                <h2> Future Work on Surface Continuity </h2>
+                <p>
+                    Future work includes applying $G^1$ continuous boundary representations to other problems, examining its effect on forces, stresses, and other engineering quantities.
+                    <br>
+                    <br> If there is shown to be a significant advantage, fifth order and higher $G^1$ triangles will be investigated.
+                </p>
+            </section>
+            <section>
+                <h2> Current Research </h2>
+                <p>
+                    Determining curved element validity and analyzing quality using B{\'e}zier properties.
+                    <br>
+                    <br> Previous work (Remacle and others) introduced an adaptive check using B{\'e}zier subdivision.
+                    <br>
+                    <br> We are investigating an elevation based adaptive check, studying and comparing the two algorithms.
+                </p>
+            </section>
+            <section>
+                <h2> Current Research </h2>
+                <p>
+                    With a robust and efficient validity check in place, we can extend local mesh modification operators for mesh adaptation and quality improvement:</p>
+                <ul>
+                    <li> Refinement (splits), with subdivision </li>
+                    <li> Coarsening (collapses), with degree reduction </li>
+                    <li> Reshaping (control point movement), with convex hull property </li>
+                </ul>
+                <br>
+                <p>
+                    Investigate variable-order meshes - i.e. highest order on the boundary, lowest order on in the interior.
+                </p>
+            </section>
+        </div>
+    </div>
+    <script src="../reveal.js/lib/js/head.min.js"></script>
+    <script src="../reveal.js/js/reveal.min.js"></script>
+    <script src="support/reveal.init.js"></script>
+</body>
+
+</html>
