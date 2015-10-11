@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>What's a Presentation?</title>
+    <meta name="description" content="A Daniel W. Zaide Presentation">
+    <meta name="author" content="Daniel W. Zaide">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="../reveal.js/css/reveal.min.css">
+    <!-- <link rel="stylesheet" href="../reveal.js/css/theme/plain.css" id="theme"> -->
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+    <link rel="stylesheet" href="support/slides.css">
+    <!-- adds grid  -->
+    <link rel="stylesheet" href="support/normalize.css">
+    <link rel="stylesheet" href="support/skeleton.css">
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+    if (window.location.search.match(/print-pdf/gi)) {
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = '../reveal.js/css/print/pdf.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    }
+    </script>
+    <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+</head>
+
+<body>
+    <div class="reveal container">
+        <!-- main title page -->
+        <div class="slides">
+            <section>
+                <br>
+                <br>
+                <h2><b>Towards a Real-Time Physical Building Envelope Model with Uncertainty Quantification</b></h2>
+                <br>
+                <br>
+                <h3>Daniel W. Zaide, Justin Shultz, and Assad Oberai</h3>
+                <br>
+                <br>
+                <h3>Scientific Computation Research Center <br>Rensselaer Polytechnic Institute, Troy, NY</h3>
+            </section>
+            <section data-background="images/ICSolar/ICSFacade.png">
+        <!--         <div class="row">
+                    <div class="one-half column">
+                        <img src="images/ICSolar/expt3.jpg" width="100%">
+                        <br>
+                    </div>
+                    <div class="one-half column" style="padding-left:20px; text-align:left"> -->
+              <!--           <br>
+                        <br>
+                        <h3><b>Do I have a more generic picture for building envelopes?</b><br><br>Can we model the building envelope to predict the energy gain? <br><br>Can we introduce uncertainty into our model? <br><br> -- add another question -- <br><br> </h3> -->
+                               <h2 style="position:absolute; top: 100px; left:0px; color:black; text-align:left"><b>Can we develop a model to predict energy gains produced by an intelligent building envelope?<br><br>Can we predict and anticipate uncertainty in weather changes and integrate this information into our model in real time? </b></h2>
+                    <!-- </div> -->
+                <!-- </div> -->
+            </section>
+            <section>
+                <h2> Integrated Concentrating Solar  </h2>
+                <br>
+                <br>
+                <div class="row">
+                    <div class="one-half column">
+                        <img src="images/ICSolar/expt3.jpg" width="75%">
+                        <br>
+                    </div>
+                    <div class="one-half column"><br><br>
+                            <h3 style="text-align:left"><b>Goal:</b> Capture solar energy for redistribution to building systems <br><br><b> Idea: </b> Use high efficiency photovoltaic cells to capture and draws away excess heat in a thermal fluid.</h3>
+                    </div>
+                </div>
+            </section>
+<!--             Integrated Concentrating Solar is a dynamic build envelope technology that uses 2-axis solar tracking to concentrate direct normal irradiance onto high efficiency photovoltaic cells with excess heat captured and drawn away by a heat receiver and thermal fluid. The coupled electrical and thermal generated energy is concentrated, stored, and redistributed on demand to building systems for cooling, lighting, and electrical loads. Additionally the intercepted direction radiation greatly reduces solar heat gain into adjacent building zones, while allowing diffuse radiation into the building envelope for natural daylight. -->
+            <section>
+                <h2> Integrated Concentrating Solar  </h2>
+                <br>
+                <br>
+<!--                 <div class="row">
+                    <div class="one-half column">
+                        <img src="images/ICSolar/expt3.jpg" width="75%">
+                        <br>
+                    </div>
+                    <div class="one-half column">
+                        <img src="images/ICSolar/Notes.png" width="85%">
+                    </div>
+                </div> -->
+
+                                        <img src="images/ICSolar/Notes2.png" width="75%">
+                                          <h3> Note. This slide is just an image, and serves as part of the story of how this came together.. adds an "emotional" social aspect to the process etc.. It gives me something to talk over.</h3>
+
+            </section>
+            <section>
+                <h2> Integrated Concentrating Solar  </h2>
+                <br>
+                <br>
+                <div class="row">
+                    <div class="one-half column">
+                        <img src="images/ICSolar/expt3.jpg" width="75%">
+                        <br>
+                    </div>
+                    <div class="one-half column">
+                        <img src="images/ICSolar/ICSCV2.png" width="65%">
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h2> Integrated Concentrating Solar </h2>
+                <br>
+                <br>
+                <div class="row">
+                    <div class="five columns">
+                        <!-- <h3>Consider a single module</h3> -->
+                        <img src="images/ICSolar/ICSCV1.png" width="100%">
+                    </div>
+                    <div class="seven columns">
+                        <h4><br>$$
+\begin{eqnarray} 
+W_2: \qquad&  \dot{m}_wC_{p,w}(\theta_{2}-\theta_{1}) = &Q_w \\
+A_2: \qquad &  \dot{m}_AC_{p,A}(T_{2}-T_{1}) = &0 \\[0.2cm]
+W_1: \qquad&  \dot{m}_wC_{p,w}(\theta_{1}-\theta_{0}) = &h_{wA}(T_{1}-\theta_{1}) \\
+A_1: \qquad&  \dot{m}_AC_{p,A}(T_{1}-T_{0}) =& h_{wA}(\theta_{1}-T_{1}) \\ & & + h_{e}(T_e-T_{1}) \\ & & +  h_{r}(T_r-T_{1})  \\
+\end{eqnarray}
+$$</h4>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <section>
+                    <h2> Validation </h2>
+                    <br>
+                    <br>
+                    <div class="row">
+                        <div class="five columns">
+                            <!-- <h3>Consider a single module</h3> -->
+                            <img src="images/ICSolar/ICSCV2.png" width="80%">
+                        </div>
+                        <div class="one column"> 
+                        </div>
+                                               <div class="six columns">
+
+                       <br><br>
+                            <h3 style="text-align:left">
+                                Experimental Setup: 6 Modules
+                                <br>
+                                <br> Use measured heat generated, $Q_w$, for each module
+                                <br>
+                                <br> Eight different sets of data: Jan 28, Jan 31, Feb 6, Feb 11, Feb 27, Feb 28, Mar 6, Mar 9
+                            </h3>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <h2> Validation - Constants</h2>
+                    <br>
+                    <br>
+                    <p>
+                        $$\begin{eqnarray} \dot{m}_A & = & 0.384 kg/s \\ C_{p,w} & = & 4.218 \;kJ/(kg\;K) \\ C_{p,A} & = & 1.005 \;kJ/(kg\;K) \\ h_{wA} & = & 9.646 \times 10^{-5} kW/(K\;m)\\ h_{e} & = & 1.572 \times 10^{-4} kW/(K\;m)\\ h_{r} & = & 4.837 \times 10^{-4} kW/(K\;m)\\
+                        <!-- T_{e} & = & 22.5^\circ C \\ -->
+                        T_{r} & = & 20.0^\circ C \end{eqnarray}$$
+                        <p>
+                </section>
+            </section>
+            <section>
+                <h2> Validation - Feb 28</h2><br><br><br><br>
+                                    <div class="row">
+                        <div class="four columns">
+                <img src="images/ICSolar/Inputs/Feb28_inflow.png" width="100%"><br>
+                <h3>$T_0, \theta_0$ </h3>
+                </div>                        <div class="four columns">
+
+                <img src="images/ICSolar/Inputs/Feb28_mdot.png" width="100%"><br>
+                <h3>$\dot{m}_{w}$ </h3>
+                </div>                        <div class="four columns">
+
+                <img src="images/ICSolar/Inputs/Feb28_inletQ.png" width="100%"><br>
+                <h3>$Q_{w,i}$ </h3></div>
+                </div>
+            </section>
+                       <section>
+                <h2> Validation - Feb 28</h2><br><br><br><br>
+                    <div class="row">
+                        <div class="six columns">
+                 <img src="images/ICSolar/Val/Feb28_m6_out.png" width="100%"><br>
+                <h3>First Module </h3>
+                </div>                        <div class="six columns">
+
+                 <img src="images/ICSolar/Val/Feb28_m1_out.png" width="100%"><br>
+                <h3>Sixth Module </h3>
+                </div>        
+                </div>
+
+            </section>
+            <section>
+                <h2> Direct Normal Irradiance</h2> <br><br>
+                   <div class="row">
+                        <div class="six columns">
+                        <h3 style="text-align:left"> We can further test our model by using the Direct Normal Irradiance (DNI) to estimate the heat generated per module.</h3><h4>
+                            $$\begin{eqnarray}Q &= &1.69\times 10^{-7}\mathrm{DNI}^3  \\&-& 1.64\times 10^{-4}\mathrm{DNI}^2 \\&+&  5.19\times 10^{-2}\mathrm{DNI}  \\&-&1.99\end{eqnarray}$$
+</h4>
+</div>                        <div class="six columns">
+                                                 <img src="images/ICSolar/Inputs/QvsDNI_fits.png" width="100%">
+
+            
+</div>
+</div>
+            </section>
+            <section>
+                <h2> Uncertainty Quantification</h2><br><br> 
+
+                blah blah insert math about UQ here.
+            </section>
+            <section>
+                <h2>  Dynamic Regenerative Integrated<br>Polymeric Skin (DRIPS)</h2>        <br>
+                <br>
+                <div class="row">
+                    <div class="one-half column">
+                 <img src="images/Drips/DRIPS.png" width="80%">
+                    </div>
+                    <div class="one-half column">
+  <h3 style="text-align:left"><b>Goal:</b> Control moisture, heat, air, and radiation. <br><br><b> Idea: </b> Use hygrothermal polymer membranes to respond to dynamic environmental conditions of relative humidity, dry-bulb temperature, solar radiation, natural ventilation, and water recuperation.</h3>                    
+  </div>
+                </div>
+            </section>
+ <!--            is a building envelope technology that use hygrothermal polymer membranes to respond to dynamic environmental conditions of relative humidity, dry-bulb temperature, solar radiation, natural ventilation, and water recuperation. More specifically, DRIPS is a system that uses distributed intelligent hydrogel-based desiccant material within a dynamic building envelope for the control of moisture, heat, air, and radiation. -->
+                         <section>
+                <h2> DRIPS </h2>
+                <br>
+                <br>
+                <div class="row">
+                    <div class="six columns">
+                        <!-- <h3>Consider a single module</h3> -->
+                        <img src="images/Drips/DRIPS.png" width="80%">
+                    </div>
+                    <div class="six columns">
+                         <img src="images/Drips/DRIPSCV2.png" width="60%">
+
+                    </div>
+                </div>
+            </section>
+                        <section>
+                <h2> DRIPS </h2>
+                <br>
+                <br>
+                <div class="row">
+                    <div class="six columns">
+                        <!-- <h3>Consider a single module</h3> -->
+                        <img src="images/Drips/DRIPSCV1.png" width="100%">
+                    </div>
+                    <div class="six columns"><br>
+                        <h4>$$
+\begin{eqnarray} 
+
+W_1: & & \dot{m}_wC_{p,w}(\theta_{1}-\theta_{0}) = h_{wa}(T_{1}-\theta_{1}) \\
+& & \dot{m}_{w,1} = \dot{m}_{w,0} \\ 
+A_1: & & \dot{m}_{1}(h_{1}-h_{0}) = h_{wa}(\theta_{1}-T_{1})
+\\&& + h_{e}(T_e-T_{1}) + h_{r}(T_r-T_{1}) \\
+& & \dot{m}_{1} = \dot{m}_{0} \\ 
+& & \dot{m}_{v,1} = \dot{m}_{v,0} \\[0.2cm] & &
+h_{1} = (1-\chi_1)C_{p,a}T_{1} + \chi_1(h_v+C_{p,v}T_{1})\\ &&
+\chi_1 = \dot{m}_{v,1}/\dot{m}_{1}
+
+                \end{eqnarray}$$
+
+</h4>
+                    </div>
+                </div>
+                <h4>
+
+                </h4>
+            </section>
+                       <section>
+                <h2> DRIPS </h2>
+                <br>
+                <br>
+                <div class="row">
+                    <div class="six columns">
+                        <!-- <h3>Consider a single module</h3> -->
+                        <img src="images/Drips/DRIPSCV1.png" width="100%">
+                    </div>
+                    <div class="six columns"><br>
+                        <h4>$$
+\begin{eqnarray} 
+    W_2: & & \dot{m}_{w,2}C_{p,w}\theta_{2}-\dot{m}_{w,1}C_{p,w}\theta_{1}=q_{w,2}C_{p,w}T_{2} \\
+& & \dot{m}_{w,2} = \dot{m}_{w,1} + q_{w,2} \\ 
+A_2: & & \dot{m}_{2}h_{2} = \dot{m}_{1}h_{1} - q_{w,2}(C_{p,v}T_{2}-h_v) \\
+& & \dot{m}_{2} = \dot{m}_{1} - q_{w,2} \\
+& & \dot{m}_{v,2} = \dot{m}_{v,1} - q_{w,2} \\[0.2cm] & &
+h_{2} = (1-\chi_2)C_{p,a}T_{2} + \chi_2(h_v+C_{p,v}T_{2})\\ &&
+\chi_2 = \dot{m}_{v,2}/\dot{m}_{2}
+
+                \end{eqnarray}$$
+
+</h4>
+                    </div>
+                </div>
+                <h4>
+$$
+\begin{equation}
+\end{equation}$$
+
+                </h4>
+            </section>
+            <section>
+                <h2> Acknowledgements</h2>
+                <h3 style="text-align:left">
+                   <br><br>
+                    RPI Knowledge and Innovation Program 
+                         <br><br>Mohamed Aly, Brandon Andow, Jesse Craft, Anna Dyson, Shane Ida, Mae-Ling Lokko,  Linda McGown, Nicholas Novelli, Kenton Phillips, Peter Stark, Wyatt Stevens, Jason Vollen
+</h3>
+            </section>
+        </div>
+    </div>
+    <script src="../reveal.js/lib/js/head.min.js"></script>
+    <script src="../reveal.js/js/reveal.min.js"></script>
+    <script src="support/reveal.init.js"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ TeX: { extensions: ["enclose.js","color.js"] }});
+    </script>
+</body>
+
+</html>
