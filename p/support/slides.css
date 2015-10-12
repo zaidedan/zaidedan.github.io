@@ -69,10 +69,14 @@
 
 .reveal .controls div.navigate-up,
 .reveal .controls div.navigate-up.enabled {
+        display: none;
+    opacity: 0.0;
   border-bottom-color: black; }
 
 .reveal .controls div.navigate-down,
 .reveal .controls div.navigate-down.enabled {
+        display: none;
+    opacity: 0.0;
   border-top-color: black; }
 .MathJax_Display {
   padding: 20px !important;

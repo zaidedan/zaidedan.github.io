@@ -45,7 +45,7 @@
                 <h4>Scientific Computation Research Center, Rensselaer Polytechnic Institute<br></h4>
                 <br>
                 <br>
-                <h4>These slides are available at <b>www.unstructuredmesh.com</b></h4>
+             
             </section>
             <section>
                 <h2> Introduction </h2>
@@ -77,9 +77,9 @@
                     </div>
             </section>
             <section>
-                <h2> $4^{\mathrm{th}}$ Order B{\'e}zier Triangle </h2>
+                <h2> $4^{\mathrm{th}}$ Order B&eacute;zier Triangle </h2>
                 <p>
-                    $C^0$ continuity obtained from the B{\'e}zier triangle, $4^{\mathrm{th}}$ order being the minimum needed for $G^1$ continuity. </p> <img src="images/imr2015/tikz3.png" alt="G1 Continuity" width="40%">
+                    $C^0$ continuity obtained from the B&eacute;zier triangle, $4^{\mathrm{th}}$ order being the minimum needed for $G^1$ continuity. </p> <img src="images/imr2015/tikz3.png" alt="G1 Continuity" width="40%">
                 <br>
                 <p>
                     $$ \mathbf{B}(u,v,w) = \displaystyle\sum_{i+j+k=4} \frac{4!}{i!j!k!}u^iv^jw^k\mathbf{P}_{ijk} $$
@@ -91,7 +91,7 @@
                     $G^1$ continuity obtained from the $4^{\mathrm{th}}$ order triangle of Walton and Meek. </p><img src="images/imr2015/tikz4.png" alt="G1 Continuity" width="40%">
                 <br>
                 <p>
-                    And can be computed using the $4^{\mathrm{th}}$ order B{\'e}zier equation, blending pairs of points to form the internal B{\'e}zier points, e.g. $$ \mathbf{P}_{112} = \frac{1}{v+w}(v\mathbf{G}_{12} + w\mathbf{G}_{21}) $$
+                    And can be computed using the $4^{\mathrm{th}}$ order B&eacute;zier equation, blending pairs of points to form the internal B&eacute;zier points, e.g. $$ \mathbf{P}_{112} = \frac{1}{v+w}(v\mathbf{G}_{12} + w\mathbf{G}_{21}) $$
                 </p>
             </section>
             <section>
@@ -119,6 +119,7 @@
                     <br> Accuracy is measured in the $L_2$ and $L_\infty$ norm of solution and $L_2$ norm of solution gradient. $$ \begin{eqnarray*} L_2(u^{h,p}) &=& \left(\int_{\Omega_M} (u^{h,p}-u_{exact})^2 \;\mathrm{d}\Omega_M \right)^{1/2} \\ L_\infty(u^{h,p}) &=& \max_{\Omega_M} \left|u^{h,p}-u_{exact}\right| \\ L_2(\nabla u^{h,p})& =& \left(\int_{\Omega_M} \nabla(u^{h,p}-u_{exact})\cdot \nabla(u^{h,p}-u_{exact}) \; \mathrm{d}\Omega_M \right)^{1/2} \end{eqnarray*} $$
                 </p>
             </section>
+<section>
             <section>
                 <h2> Hagen-Poiseuille Flow </h2>
                 <p>
@@ -127,43 +128,111 @@
                     <br>
                                     </p>
                                     <h3>
-                    <div class="row">
-                                                <div class="three columns">
-                                                <br>
+<div class="row">
+    <div class="three columns">
+        <br>
+    </div>
+    <div class="three columns">
+        <table>
+            <thead style="border-bottom: 2px solid black;">
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th>interp. error.</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>$C^0$</td>
+                    <td>&nbsp;</td>
+                    <td>$1.19\times 10^{-5}$ </td>
+                </tr>
+                <tr>
+                    <td>$G^1$</td>
+                    <td>&nbsp;</td>
+                    <td>$6.32\times 10^{-3}$</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="six columns">
+        <img src="images/imr2015/cylinder.png" alt="Cylinder" width="70%">
+    </div>
 </div>
-                        <div class="three columns">
-                            <table>
-                                <thead style="border-bottom: 2px solid black;">
-                                    <tr>
-                                        <th></th>
-                                        <th></th>
-                                        <th>interp. error.</th>
-                                    </tr>
-                                </thead>
 
-                                <tbody>
-                                    <tr>
-                                        <td>$C^0$</td><td>&nbsp;</td>
-                                        <td>$1.19\times 10^{-5}$ </td>
-                                        </tr>
-                                            <tr>
-                                                <td>$G^1$</td><td>&nbsp;</td>
-                                                <td>$6.32\times 10^{-3}$</td>
-                                                </tr>
-    
-                                </tbody>
-                            </table>
+                    </h3>
+            </section>
+            <section>
+                <h2> Poisson's Equation </h2><p>
+                We first consider Poisson's equation on a sphere of unit radius. $$ -\Delta u(\mathbf{x}) = f(\mathbf{x})$$
+                Two curved tetrahedral meshes with 94 and 2942 tetrahedra are used. <br><br>
+                We choose $u(\mathbf{x}) = (1-r^6)$ such that $u(\mathbf{x}) = 0$ on the boundary.</p>
+                                    <div class="row">
+        
+                        <div class="one-half column">
+                            <img src="images/imr2015/sphere1.png" alt="Sphere1" width="70%">
+
                         </div>
-                        <div class="six columns">
-                            <img src="images/imr2015/cylinder.png" alt="Cylinder" width="70%">
+                        <div class="one-half column">
+                            <img src="images/imr2015/sphere2.png" alt="Sphere2" width="70%">
                         </div>
                     </div>
-                    </h3>
+            </section>
+                                    <section>
+                <h2> Poisson's Equation </h2>
+                <p>5$^{\text{th}}$ order solutions</p><h3>
+                <table  cellspacing="10">
+                <thead style="border-bottom: 2px solid black;">
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th>interp. error.</th>
+                        <th style="padding:5px 25px 5px 25px;">$L_2(p^{h,p})$</th>
+                        <th style="padding:5px 25px 5px 25px;">$L_\infty(p^{h,p}) $</th>
+                        <th style="padding:5px 25px 5px 25px;">$L_2(\nabla p^{h,p})$</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>$C^0$</td><td>&nbsp;</td>
+                        <td>$6.71\times 10^{-4}$ </td>
+                        <td style="padding:5px 25px 5px 25px;">$8.88\times 10^{-4}$</td>
+                        <td style="padding:5px 25px 5px 25px;">$2.10\times 10^{-3}$ </td>
+                        <td style="padding:5px 25px 5px 25px;">$1.29\times 10^{-2}$  </td>
+                        </tr>
+                    <tr  style="border-bottom: 2px solid black;">
+                        <td>$G^1$</td><td>&nbsp;</td>
+                        <td>$4.88\times 10^{-3}$ </td>
+                        <td style="padding:5px 25px 5px 25px;">$1.18\times 10^{-2}$ </td>
+                        <td style="padding:5px 25px 5px 25px;">$1.52\times 10^{-2}$ </td>
+                        <td style="padding:5px 25px 5px 25px;">$3.21\times 10^{-2}$  </td>
+                        </tr>
+
+                    <tr>
+                        <td>$C^0$</td><td>&nbsp;</td>
+                        <td> $2.01\times 10^{-7}$ </td>
+                        <td style="padding:5px 25px 5px 25px;">$1.96\times 10^{-6}$ </td>
+                        <td style="padding:5px 25px 5px 25px;">$1.90\times 10^{-5}$ </td>
+                        <td style="padding:5px 25px 5px 25px;">$1.86\times 10^{-4}$  </td>
+                        </tr>
+                      <tr>
+                        <td>$G^1$</td><td>&nbsp;</td>
+                        <td>$1.74\times 10^{-5}$ </td>
+                        <td style="padding:5px 25px 5px 25px;">$4.36\times 10^{-5}$ </td>
+                        <td style="padding:5px 25px 5px 25px;"> $1.35\times 10^{-4}$ </td>
+                        <td style="padding:5px 25px 5px 25px;"> $2.56\times 10^{-4}$  </td>
+                        </tr>
+                </tbody>
+            </table>
+                </h3>
+
+            </section>
             </section>
                         <section>
                 <h2> Hagen-Poiseulle Flow </h2>
                 <p>$x$-velocity</p><h3>
-                <table  cellspacing="10">
+                <table cellspacing="10">
                 <thead style="border-bottom: 2px solid black;">
                     <tr>
                         <th></th>
@@ -289,9 +358,9 @@
             <section>
                 <h2> Current Research </h2>
                 <p>
-                    Determining curved element validity and analyzing quality using B{\'e}zier properties.
+                    Determining curved element validity and analyzing quality using B&eacute;zier properties.
                     <br>
-                    <br> Previous work (Remacle and others) introduced an adaptive check using B{\'e}zier subdivision.
+                    <br> Previous work (Remacle and others) introduced an adaptive check using B&eacute;zier subdivision.
                     <br>
                     <br> We are investigating an elevation based adaptive check, studying and comparing the two algorithms.
                 </p>
@@ -309,6 +378,16 @@
                 <p>
                     Investigate variable-order meshes - i.e. highest order on the boundary, lowest order on in the interior.
                 </p>
+            </section>
+            <section>
+                <h1> Questions?</h1><br><br>
+              <h3>
+ <img src="../images/calvinhobbesmeshing.jpg" alt="A Meshing Cartoon" width="80%"></h3><p>
+Our lab is looking for another post-doc, see me or Mark Shephard. <br><br>
+ 
+Happy Canadian Thanksgiving! 
+                                <br><br>
+                These slides are available at <b>www.unstructuredmesh.com</b> and <a href="zaide_IMR2015_slides.pdf">in PDF</a></p>
             </section>
         </div>
     </div>
