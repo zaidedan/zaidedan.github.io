@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>D.W. Zaide - IMR 2015</title>
+    <title>D.W. Zaide</title>
     <meta name="description" content="A Daniel W. Zaide Presentation">
     <meta name="author" content="Daniel W. Zaide">
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -37,9 +37,9 @@
         <!-- main title page -->
         <div class="slides">
             <section>
-                <h2>A comparison of $C^0$ and $G^1$ continuous curved tetrahedral meshes for high-order finite element simulations<br></h2>
+                <h2>Thoughts on Curved Meshing and Other Stuff<br></h2>
                 <br>
-                <h3><b>Daniel W. Zaide, Qiukai Lu, and Mark Shephard</b></h3>
+                <h3><b>Daniel W. Zaide</b></h3>
                 <br>
                 <br>
                 <h4>Scientific Computation Research Center, Rensselaer Polytechnic Institute<br></h4>
@@ -48,7 +48,78 @@
              
             </section>
             <section>
-                <h2> Introduction </h2>
+                <h2>Active Research<br></h2>
+          <p> <a href="https://www.hopr-project.org/index.php/About_HOPR"> HOPR </a>, Claus-Dieter Munz, University Stuttgart <br>
+           GMSH, Jean-Francois Remacle, Université catholique de Louvain <br>
+           Per-Olof Persson, University of California, Berkeley <br>
+           Pointwise Inc, (Steve Karman, others) <br>
+           Joaquim Peiro, and others, Imperial College London <br> 
+
+          </p>
+
+             
+            </section>
+                        <section>
+                <h2>Approaches<br></h2>
+          <p> Mean Value Coordinate Interpolation <br>
+          Radial Basis Interpolation <br>
+          Physics Based (Elasticity, etc) <br>
+          Optimization Based <br><br>
+          </p>
+
+             
+            </section>
+            <section>
+            <section>
+<h2>B&eacute;zier Shapes<br></h2><p style="font-size: 22px;">
+The convex hull property. The max and min values of a B&eacute;zier polynomial evaluated within the domain are bounded by the max and min values of its corresponding control points.
+ <br><br> Variation diminishing. The curve has no more intersections with any plane than polygon of its control points, and converges to the curve.
+ <br><br> Affine invariance. Curves form an affine map, allowing for reparametrization. 
+ <br><br> Degree elevation. Shapes can be increased to higher-orders without changing behavior of the curve.
+  <br><br> Subdivision. Shapes can be increased to higher-orders without changing behavior of the curve.
+
+<br><br> Derivatives of B&eacute;zier  shapes are themselves B&eacute;zier shapes (as is the Jacobian Determinant)
+<br><br> Control over derivatives.
+</p>
+            </section>
+                                    <section>
+                <style type="text/css">
+<!--
+
+#pdf {
+    width: 100%;
+    height: 650px;
+    margin: 2em auto;
+    border: 10px solid #6699FF;
+}
+
+#pdf p {
+   padding: 1em;
+}
+
+#pdf object {
+   display: block;
+   border: solid 1px #666;
+}
+
+-->
+</style>
+<div id="pdf">
+<object data="beziernotes.pdf#toolbar=1&amp;navpanes=0&amp;scrollbar=1&amp;page=1&amp;view=FitH" 
+        type="application/pdf" 
+        width="100%" 
+        height="100%">
+
+
+</object>
+</div>
+<p><a href="beziernotes.pdf">click here to download the PDF file.</a></p>
+
+            </section>
+            </section>
+            <section>
+            <section>
+                <h2> Surface Continuity </h2>
                 <p>
                     <br> Finite element methods are sensitive to the accuracy and smoothness of the mesh that approximates the curved domain boundaries.
                     <br>
@@ -94,6 +165,7 @@
                     And can be computed using the $4^{\mathrm{th}}$ order B&eacute;zier equation, blending pairs of points to form the internal B&eacute;zier points, e.g. $$ \mathbf{P}_{112} = \frac{1}{v+w}(v\mathbf{G}_{12} + w\mathbf{G}_{21}) $$
                 </p>
             </section>
+
             <section>
                 <h2> Mesh Curving </h2>
                 <p>
@@ -105,11 +177,6 @@
                     <br> For $G^1$ control points, the algorithm of Walton and Meek is used except on CAD edges, where edge tangents are used instead of surface normals.</p>
             </section>
             <section>
-                <h2> Blended Tetrahedron </h2>
-                <p>
-                    The tetrahedral mapping we use the blending approach of Dey et al., to account for differences in exterior and interior shape functions, specifically from $G^1$ surface triangles. $$ \begin{eqnarray*} \mathbf{x}_i(\boldsymbol\xi) &=& (1-\xi_1)^{2} F_1(\xi_{F_1}') + (1-\xi_2)^{2} F_2(\xi') \\ &+& (1-\xi_3)^{2} F_3(\xi') (1-\xi_4)^{2} F_4(\xi') \\ &-& (1 - \xi_1 - \xi_2)^{2} E_1 (\xi') - (1 - \xi_1 - \xi_3)^{2} E_2 (\xi') \\ &-& (1 - \xi_1 - \xi_4)^{2} E_3 (\xi') - (1 - \xi_2 - \xi_3)^{2} E_4 (\xi') \\ & -& (1 - \xi_2 - \xi_4)^{2} E_5 (\xi') - (1 - \xi_3 - \xi_4)^{2} E_6 (\xi') \\ & +& \xi_1^{2} V_1 + \xi_2^{2} V_2 + \xi_3^{2} V_3 + \xi_4^{2} V_4 \end{eqnarray*} $$ where $\boldsymbol\xi = (\xi_1,\xi_2,\xi_3,\xi_4)$ are barycentric coordinates and $F_i$, $E_i$, and $V_i$ correspond to faces, edges, and vertices.</p>
-            </section>
-            <section>
                 <h2> Results </h2>
                 <p>
                     Curved elements implemented in Nektar++, a high-order finite element code.
@@ -118,49 +185,6 @@
                     <br>
                     <br> Accuracy is measured in the $L_2$ and $L_\infty$ norm of solution and $L_2$ norm of solution gradient. $$ \begin{eqnarray*} L_2(u^{h,p}) &=& \left(\int_{\Omega_M} (u^{h,p}-u_{exact})^2 \;\mathrm{d}\Omega_M \right)^{1/2} \\ L_\infty(u^{h,p}) &=& \max_{\Omega_M} \left|u^{h,p}-u_{exact}\right| \\ L_2(\nabla u^{h,p})& =& \left(\int_{\Omega_M} \nabla(u^{h,p}-u_{exact})\cdot \nabla(u^{h,p}-u_{exact}) \; \mathrm{d}\Omega_M \right)^{1/2} \end{eqnarray*} $$
                 </p>
-            </section>
-<section>
-            <section>
-                <h2> Hagen-Poiseuille Flow </h2>
-                <p>
-                    Fully developed, laminar viscous flow through a cylindrical pipe of unit radius and length of 10 in the $z$- direction $$ u_z(\mathbf{x}) = -\frac{1}{4\nu}\left(\frac{\mathrm{d}p}{\mathrm{d}z}\right)(R^2-r^2), \quad p(\mathbf{x}) = 1-\frac{z}{10}, \quad r^2 = x^2 + y^2 $$ with $u_x = u_y = 0$, $\nu = 0.025$, such that $u_z = 1-r^2$.
-                    <br>
-                    <br>
-                                    </p>
-                                    <h3>
-<div class="row">
-    <div class="three columns">
-        <br>
-    </div>
-    <div class="three columns">
-        <table>
-            <thead style="border-bottom: 2px solid black;">
-                <tr>
-                    <th></th>
-                    <th></th>
-                    <th>interp. error.</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>$C^0$</td>
-                    <td>&nbsp;</td>
-                    <td>$1.19\times 10^{-5}$ </td>
-                </tr>
-                <tr>
-                    <td>$G^1$</td>
-                    <td>&nbsp;</td>
-                    <td>$6.32\times 10^{-3}$</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <div class="six columns">
-        <img src="images/imr2015/cylinder.png" alt="Cylinder" width="70%">
-    </div>
-</div>
-
-                    </h3>
             </section>
             <section>
                 <h2> Poisson's Equation </h2><p>
@@ -228,7 +252,50 @@
                 </h3>
 
             </section>
+            <section>
+                <h2> Hagen-Poiseuille Flow </h2>
+                <p>
+                    Fully developed, laminar viscous flow through a cylindrical pipe of unit radius and length of 10 in the $z$- direction $$ u_z(\mathbf{x}) = -\frac{1}{4\nu}\left(\frac{\mathrm{d}p}{\mathrm{d}z}\right)(R^2-r^2), \quad p(\mathbf{x}) = 1-\frac{z}{10}, \quad r^2 = x^2 + y^2 $$ with $u_x = u_y = 0$, $\nu = 0.025$, such that $u_z = 1-r^2$.
+                    <br>
+                    <br>
+                                    </p>
+                                    <h3>
+<div class="row">
+    <div class="three columns">
+        <br>
+    </div>
+    <div class="three columns">
+        <table>
+            <thead style="border-bottom: 2px solid black;">
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th>interp. error.</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>$C^0$</td>
+                    <td>&nbsp;</td>
+                    <td>$1.19\times 10^{-5}$ </td>
+                </tr>
+                <tr>
+                    <td>$G^1$</td>
+                    <td>&nbsp;</td>
+                    <td>$6.32\times 10^{-3}$</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="six columns">
+        <img src="images/imr2015/cylinder.png" alt="Cylinder" width="70%">
+    </div>
+</div>
+
+                    </h3>
             </section>
+
+            
                         <section>
                 <h2> Hagen-Poiseulle Flow </h2>
                 <p>$x$-velocity</p><h3>
@@ -355,6 +422,22 @@
                     <br> If there is shown to be a significant advantage, fifth order and higher $G^1$ triangles will be investigated.
                 </p>
             </section>
+                        </section>
+            <section>
+                <h2> Blended Tetrahedron </h2>
+                <p>
+                    The tetrahedral mapping we use the blending approach of Dey et al., to account for differences in exterior and interior shape functions, specifically from $G^1$ surface triangles. $$ \begin{eqnarray*} \mathbf{x}_i(\boldsymbol\xi) &=& (1-\xi_1)^{2} F_1(\xi_{F_1}') + (1-\xi_2)^{2} F_2(\xi') \\ &+& (1-\xi_3)^{2} F_3(\xi') (1-\xi_4)^{2} F_4(\xi') \\ &-& (1 - \xi_1 - \xi_2)^{2} E_1 (\xi') - (1 - \xi_1 - \xi_3)^{2} E_2 (\xi') \\ &-& (1 - \xi_1 - \xi_4)^{2} E_3 (\xi') - (1 - \xi_2 - \xi_3)^{2} E_4 (\xi') \\ & -& (1 - \xi_2 - \xi_4)^{2} E_5 (\xi') - (1 - \xi_3 - \xi_4)^{2} E_6 (\xi') \\ & +& \xi_1^{2} V_1 + \xi_2^{2} V_2 + \xi_3^{2} V_3 + \xi_4^{2} V_4 \end{eqnarray*} $$ where $\boldsymbol\xi = (\xi_1,\xi_2,\xi_3,\xi_4)$ are barycentric coordinates and $F_i$, $E_i$, and $V_i$ correspond to faces, edges, and vertices.</p>
+            </section>
+            <section>
+                <h2> Mesh Curving </h2>
+                <p> Boundaries are handled first, followed by interior points if full shapes used.
+                     </p><img src="images/imr2015/tikz5.png" style="padding:22px" alt="Interpolation Points" width="30%"><img src="images/imr2015/arrowright.png" style="padding:25px" alt="Control Points" width="10%"> <img src="images/imr2015/tikz6.png" style="padding:25px" alt="Control Points" width="30%">
+                <br>
+                <p>
+                    Interpolation points are from surface parametrization using the optimal locations of Chen and Babu&scaron;ka.
+                    <br><br> For full shapes, interior control point locations determined from blending of lower entities.
+                    </p>
+            </section>
             <section>
                 <h2> Current Research </h2>
                 <p>
@@ -380,15 +463,76 @@
                 </p>
             </section>
             <section>
-                <h1> Questions?</h1><br><br>
-              <h3>
- <img src="../images/calvinhobbesmeshing.jpg" alt="A Meshing Cartoon" width="80%"></h3><p>
-Our lab is looking for another post-doc, see me or Mark Shephard. <br><br>
- 
-Happy Canadian Thanksgiving! 
-                                <br><br>
-                These slides are available at <b>www.unstructuredmesh.com</b> and <a href="zaide_IMR2015_slides.pdf">in PDF</a></p>
+                   <h2> Integration with Nektar++</h2>
+                <p>
+                Integration with Nektar++ is done via overloading the <span style="font-family:'Courier New'">MeshGraph</span> object to read our mesh, as well as several other locations where spatial information is needed. <br><br>
+                Two copies of the mesh are kept, a low order Nektar++ version and ours <br><br>
+                When connectivity and ordering queries are made, use internal version <br><br>
+                When geometric queries are made (position, Jacobian), use our mesh <br><br>
+                <a href="https://github.com/SCOREC/nektar4">code</a>
+                </p>
+
             </section>
+            <section>
+             <section>
+                   <h2> Integration with Nektar++</h2>
+                <p>
+                Upcoming integration will change this to use our mesh entirely (with Cameron W. Smith) for tighter coupling for solution adaptation.<br><br>
+                Two potential approaches, rather than using file I/O are:
+                <br> </p><p style="font-size:24px"><b>Data Streams</b>
+
+                <br><b>o</b> Minimal code changes
+    <br><b>o</b> Ideal for components already coupled via files
+    <br><b>o</b> Logical choice for uncoupled components with I/O support and without
+      data APIs - interacting components implement I/O protocol<br><br>
+
+  <b>API based transfer procedures</b>
+    <br><b>o</b> Flexibility to extend functionality via passing additional
+      information or control parameters
+    <br><b>o</b> Supports common data representation - reduced memory usage
+    <br><b>o</b> Ideal for components with APIs that support querying and modifying
+      data structures
+    <br><b>o</b> Logical choice for components already coupled via files that want
+      access to data from multiple components - replace I/O procedures with API
+      calls that populate data structures
+                
+                </p>
+
+            </section>
+            <section>
+            <h2> Approaches </h2>
+            <p>
+  <b> Data stream approach</b><br>
+
+   <br> Component interface design and implementation<br>&nbsp;&nbsp;&nbsp;&nbsp;Data stream handles need to be passed through execute procedures
+    <br> Some memory management
+    <br> Data initialization <br><br>
+  <b>API approach</b><br>
+
+    <br> Elimination of file I/O
+    <br> Lots of memory management
+    <br> Data initialization
+    <br> Component interface design and implementation <br>
+    &nbsp;&nbsp;&nbsp;&nbsp; Building interfaces for executable-only components is non-trivial
+            </p>
+            </section>
+             <section>
+            <h2> Memory Management </h2><br><p>
+             In a file-based component memory is allocated as part of the I/O process <br>
+                 <br><i>API</i>: can require large change to expose this allocation
+    <br><i>Data streams</i>: no change
+ <br><br>
+  In an in-memory component the transformation functions must control
+  allocation (de-allocation) of memory when consuming (producing) data
+<br>
+    <br><i>API</i>: Pointers are being passed and are 'owned' - reference counting
+    <br><i>Data streams</i>: no change - I/O procedures handle this
+
+  <br> <i>Data streams</i>: must ensure all `working' data is deallocated
+  </p>
+            </section>
+            </section>
+
         </div>
     </div>
     <script src="../reveal.js/lib/js/head.min.js"></script>
