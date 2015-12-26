@@ -6,9 +6,11 @@ $(document).ready(function() {
       if (paper.papertype == "conference") {
         entry = entry + paper.conference + '. <br>';
       }
-      if (paper.paper != "") {
+      if (paper.paper.startsWith('http')) {
+        entry = entry + '<a = href="' + paper.paper + '"> Link</a>. ';
+      } else if (paper.paper != "") {
         entry = entry + '<a = href="PDF/' + paper.paper + '"> Paper</a>. ';
-      }
+      } 
       if (paper.slides != "") {
         entry = entry + '<a = href="PDF/' + paper.slides + '"> Slides</a>. ';
       }

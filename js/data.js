@@ -11,7 +11,36 @@ var pages = [{
     "shortTitle": "Calvin and Hobbes",
     "html": "meshing2.html"
 }]
-var documents = [{
+var documents = [
+{
+    "papertype": "conference",
+    "authors": "Zaide, Daniel W., Lu, Qiukai, and Shephard, Mark S.",
+    "papertitle": "A comparison of C0 and G1 continuous curved meshes on high-order finite element simulations",
+    "date": "October 2015",
+    "conference": "24th International Meshing Roundtable. Research Note",
+    "journal": "",
+    "paper": "zaide_IMR2015.pdf",
+    "slides": "zaide_IMR2015_slides.pdf",
+    "poster": "",
+    "notes": "",
+    "special": true,
+    "topic": "meshing",
+    "describe": "My first work with Mark Shephard, the beginning of introducing the curved framework into PUMI, the parallel unstructured mesh infrastructure produced at RPI. This is the preliminary framework, without adaptation but serves as a simple comparison between whether achieving higher-order continuity on boundary patches is worth paying the price for. The conclusion is that we could likely find specific cases where it is worth it, but to achieve the increased continuity, the geometric interpolation error is reduced, and the curved mesh does a worse job representing the boundary."
+}, {
+    "papertype": "journal",
+    "authors": "Daniel W. Zaide and Carl F. Ollivier Gooch",
+    "papertitle": "Inserting a surface into an existing unstructured mesh",
+    "date": "October 2015",
+    "conference": "",
+    "journal": "",
+    "paper": "http://onlinelibrary.wiley.com/doi/10.1002/nme.5132/full",
+    "slides": "",
+    "poster": "",
+    "notes": "",
+    "special": true,
+    "topic": "meshing",
+    "describe": "This is the paper version with 2D and 3D results for the surface insertion. The natural extension is anisotropic, and work is actively ongoing in this area."
+}, {
     "papertype": "conference",
     "authors": "Daniel W. Zaide and Carl F. Ollivier Gooch",
     "papertitle": "Anisotropic Layering via Curve Insertion into Two Dimensional Meshes",
