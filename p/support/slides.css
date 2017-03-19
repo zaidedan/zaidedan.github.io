@@ -30,13 +30,13 @@
 }
 .reveal h4 {
     line-height: 1.4;
-    font-size: 26px;
+    font-size: 28px;
 }
 .reveal ul li {
     text-align: left;
-    line-height: 1.1;
+    line-height: 1.2;
     margin: 10px;
-    font-size: 22px;
+    font-size: 26px;
 }
 .reveal .slides img {
     border: 0;

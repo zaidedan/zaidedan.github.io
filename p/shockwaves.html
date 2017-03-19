@@ -12,7 +12,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
 
     <link rel="stylesheet" href="../reveal.js/css/reveal.min.css">
     <!-- <link rel="stylesheet" href="../reveal.js/css/theme/plain.css" id="theme"> -->
@@ -47,13 +47,7 @@
     <div class="reveal container">
         <!-- main title page -->
         <div class="slides">
-        <section>
-<h2>Why do numerical shockwaves jump <br> to the wrong conclusions?<br><br>Daniel W. Zaide</h2><br><br>
 
-<h3>This is an experimental presentation, <br> developed using reveal.js and powered by socket.js.<br><br>
-You can follow along at <b>www.unstructuredmesh.com</b>
-</h3>
-        </section>
             <section data-background="images/b1.png" data-background-size="100%" data-background-color="#C8FEF6">
 
             </section>
@@ -80,7 +74,7 @@ You can follow along at <b>www.unstructuredmesh.com</b>
             </section>
             <section>
                 <h2><br><br>
-         In the 1700s, the first wave equation was studied by d'Alembert, <br>Euler, and Lagrange among others,
+         In the 1700s, the first wave equation was studied by d'Alembert, Euler, and Lagrange among others,
 $$\frac{ \partial^2 u}{\partial t^2} = c^2 \frac{\partial^2 u}{\partial x^2} $$
   which has solution
  $$ u(x,t) = f(x-ct)+g(x+ct) $$
@@ -94,8 +88,8 @@ From Newton, there was no idea of a discontinuous solution in differential calcu
                 <h2>A century later, compressible flows were studied by <br> Hugoniot, Poisson, Rankine, Rayleigh, and Stokes.</h2>
                 <br>
                 <br>
-                <p style="text-align:left">
-The compressible flows they studied were similar to the Euler equations, as
+                <p>
+The compressible flows they studied were similar to the Euler equations,
 $$
 \mathbf{u}_t + \mathbf{f}(\mathbf{u})_x = 0
 $$
@@ -108,7 +102,7 @@ u \\ \rho{}u^2 +p \\
 \rho u H
 \end{array} \right] = \mathbf{0},
 $$
-with $H = \frac{E+p}{\rho}$ and closure from the ideal gas law, $p = (\gamma-1)\left(E-\frac{1}{2}\rho u^2\right)$
+with $H = \frac{E+p}{\rho}$ and from the ideal gas law, $p = (\gamma-1)\left(E-\frac{1}{2}\rho u^2\right)$
 </p>
                 <aside class="notes">
                     It was Poisson in 1808 paper on theory of sound and Hugoniot's 1887 paper of shockwaves. This work had been discussed earlier. Early attempts to characterize shockwaves used the isothermal speed of sound, it wasn't until Rankine and other physicists improved their equation of states, and introduced conservation of energy into the system that the equations we see here took their form, and compressible shockwaves could properly be studied.
@@ -144,8 +138,8 @@ Taking $\rho_R > \rho_L$ results in the physical Hugoniot curve, and $\rho_R < \
                 <h3> (Emmons, 1940s)</h3>
                 <img src="images/emmons.png" alt="Shock Fitting">
 
-                <h4>Emmons assumed the idealized shock, <i>underestimating the width</i>.
-                <br><br> This was the start of <b>shock-fitting</b>.</h4>
+                <h3>Emmons assumed the idealized shock, <i>underestimating the width</i>.
+                <br><br> This was the start of <b>shock-fitting</b>.</h3>
 
 
                 <aside class="notes">
@@ -159,10 +153,10 @@ Taking $\rho_R > \rho_L$ results in the physical Hugoniot curve, and $\rho_R < \
                 <img src="images/vonneumann.png" alt="Shock Fitting">
 <br><br>
 
-                <h4>Artificial viscosity was introduced to give shocks an internal structure whose length scale was that of the grid size, <i>overestimating the width</i>. <br><br>
+                <h3>Artificial viscosity was introduced to give shocks an internal structure whose length scale was that of the grid size, <i>overestimating the width</i>. <br><br></h3>
 
-This was the start of <b> shock-capturing</b>.     
-</h4>
+<h3>This was the start of <b> shock-capturing</b>.     
+</h3>
                 <aside class="notes">
                     Developed In Los Alamos during the Manhattan Project and earlier published by just Richtmyer in 1948, LA-671, unclassified in 1993. von Neumann appears to have come up with the idea in 1944, but it did not work . Shock tracking was originally used at Los Alamos in 1943 and 1944 by Peierls, but it was not stable.
                 </aside>
@@ -222,7 +216,7 @@ Moretti also argued that shock capturing was an attempt to differentiate the non
             <h2> Issues with Shock Capturing </h2><p>
 Early attempts to capture shocks led to shocks that were badly smeared or oscillatory. <br><br> Since then, there are many behaviors that have been identified, such as
   <div class="row">
-    <div class="one-half column">
+    <div class="seven columns">
 <ul>
 <li class="fragment ">Oscillations behind slowly-moving shocks</li>
 <li class="fragment ">Start-up errors</li>
@@ -235,7 +229,7 @@ Early attempts to capture shocks led to shocks that were badly smeared or oscill
 </li>
 </ul>
 </div>
-    <div class="fragment one-half column">
+    <div class="fragment five columns">
     <p>
         <img src="images/carbuncle1.png" alt="Carbuncle1" width="80%"> 
 </p>
@@ -254,9 +248,9 @@ Early attempts to capture shocks led to shocks that were badly smeared or oscill
 <img src="images/shockstates.png" alt="Shock States" width="60%">
 <p>For a single captured shock to be located anywhere on a 1D grid, at least one intermediate state is needed.<br><br>
 
-Shock-capturing methods treat these intermediate states with value that they should not have, immediately treating them as if they satisfies the governing equations.<br><br>
+Shock-capturing methods treat these intermediate states with value that they should not have, as if they satisfy the governing equations.<br><br>
 
-However, inside a shock, local thermodynamic equilibrium is not satisfied.
+However, inside a shock, local thermodynamic equilibrium isn't satisfied.
 </p>
             </section>
 
@@ -265,19 +259,18 @@ However, inside a shock, local thermodynamic equilibrium is not satisfied.
                 <br>
                 <br>
                 <div class="row">
-                    <div class="one-half column">
+                    <div class="seven columns">
 
                         <p>The intermediate state lies on the nonphysical branch of the Hugoniot.<br><br>
 This is an exact result for the Godunov, Roe, and CUSP Riemann solvers, and approximately true for many others.<br><br>
  Stationary shocks with more than one intermediate state still have intermediate states clustered around the nonphysical Hugoniot.
- <br><br>$$\mathbf{f}_{L} = \mathbf{f}_{R} \neq \mathbf{f}_M$$</p>
-
                     </div>
-                    <div class="one-half column">
+                    <div class="five columns">
                         <img src="images/statshock.png" alt="Shock States" width="100%">
 
                     </div>
                 </div>
+                <p>$$\mathbf{f}_{L} = \mathbf{f}_{R} \neq \mathbf{f}_M$$</p>
             </section>
 
             <section>
@@ -285,11 +278,11 @@ This is an exact result for the Godunov, Roe, and CUSP Riemann solvers, and appr
                 <br>
                 <br>
 
-                <h4>So what's wrong with the stationary shock? Lets compute shock position.</h4>
+                <h3>So what's wrong with the stationary shock? Lets compute shock position.</h3>
 
-<img src="images/shockpos.png" alt="Shock Position" width="50%"><br><br><h4>
+<img src="images/shockpos.png" alt="Shock Position" width="50%"><br><br><h3>
 Because the Hugoniot is nonlinear, the shock positions calculated <br> from the conserved variables do not agree.
-</h4>
+</h3>
             </section>
             <section>
 <h2>Wall Heating</h2>
@@ -381,8 +374,8 @@ In consequence the temperature is too high, so that this and related phenomena h
                         <li> Straight-line systems do not suffer from these behaviors. Define a modified flux that allows for intermediate shock states to be only on a straight line in state space.</li>
                         <li> Most of these issues occur around slowly moving shocks - focus on getting the stationary case exactly.</li>
 
-                    </ul></p>
-                    <h3>Can we construct a flux function with one-point stationary shocks and no positional ambiguity?</h3>
+                    </ul></p><br><br>
+                    <h3>Can we construct a flux function with one-point stationary <br>shocks and no positional ambiguity?</h3>
                 
             </section>
             <section>
@@ -413,7 +406,7 @@ In consequence the temperature is too high, so that this and related phenomena h
                 <br>
                 <p>
                     <ul>
-                        <li> If the problem is linear so that the Jacobian matrix $\mathbf{A}(\mathbf{u})$ is constant, then $\mathbf{f}^*_{i} = \mathbf{f}_{i}$.</li>
+                        <li> If the problem is linear so that the Jacobian matrix $\mathbf{A}(\mathbf{u})$ is constant, then $\mathbf{f}^*_{i} = \mathbf{f}_{i}$</li>
                         <li> For nonlinear systems with smooth data, $$\mathbf{f}^*\simeq \mathbf{f} + \frac{(\Delta x)^2}{2}\mathbf{A}_x\mathbf{u}_x \simeq \mathbf{f} + \frac{1}{2} \Delta \mathbf{A} \Delta \mathbf{u} $$
                         </li>
                         <li> Near a discontinuity, the effect is $\mathcal{O}(1)$. </li>
@@ -565,7 +558,7 @@ A comparison of the error in momentum demonstrates the effect of the new fluxes.
             <section>
             <h2>Revisiting Artificial Viscosity</h2>
             <p>
-         Looking back to the past, in our approach, we intentionally avoided the physics, ignoring the small scales inside the shockwave and did what was best for the numerics. <br><br>
+         In our approach, we intentionally avoided the physics, ignoring the small scales inside the shockwave and did what was best for the numerics. <br><br>
             
             Historically though, in the Lagrangian frame, the original artificial viscosity was (von Neumann-Richtmyer)
             $$
@@ -575,10 +568,9 @@ A comparison of the error in momentum demonstrates the effect of the new fluxes.
             $$
             \frac{\partial u}{\partial t} + \frac{1}{\rho}\frac{\partial P}{\partial x} = \frac{1}{\rho} \frac{\partial }{\partial x} \mu \frac{\partial u}{\partial x}
             $$
-            For artificial viscous stress $q$ and artificial coefficient of viscosity $\mu$.
-            <br><br>
-                        Our method reveals an artificial viscosity
-       $\mathbf{A}_x|\mathbf{u}_x|$ rather than a traditional $\mathbf{u}_x|\mathbf{u}_x|$.
+            for artificial viscous stress $q$ and artificial coefficient of viscosity $\mu$.
+            <br><br>Our method reveals an artificial viscosity
+       $\mathbf{A}_x|\mathbf{u}_x|$ rather than $\mathbf{u}_x|\mathbf{u}_x|$.
             </p>
             <aside class="notes">
  Originally called fictitious by von Neumann, later changed to artificial. These are negative in connotation, but they should really be called shock, or numerical viscosity, as they represent. This only affected the momentum equation.  There are many methods that do resolve the inner scales of the shockwave, Kun Xu uses sub-scale models, and viscosities based on resolving it. Either way, you're making stuff up. Here, we choose to do whats best for the numerics.
